@@ -1,0 +1,80 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e3dcfe;
+    padding: 2rem;
+    transition: top 5s ease-out; /* Smooth transition */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.navbar.home {
+    position: relative; /* Initially relative */
+}
+
+.navbar.not-home {
+    position: fixed; /* Fix the navbar at the top */
+    //top: 0; /* Position at the top of the viewport */
+    //left: 0; /* Position at the left edge of the viewport */
+    width: 100%; /* Ensure it spans the full width */
+    background-color: rgba(227, 220, 254, 0.9); /* Slightly less transparent */
+    color: white; /* Text color when not in home state */
+    animation: dropDown 0.5s ease-in-out forwards; /* Apply the drop-down animation */
+    height: 2%;
+}
+
+@keyframes dropDown {
+    0% {
+        top: -100px; /* Start above the viewport */
+    }
+    100% {
+        top: 0; /* End at the top of the viewport */
+    }
+}
+
+.navbar-left .Home-Link {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #090132;
+    text-decoration: none;
+
+    //box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 5px 2px rgba(0,0,0,0.24);
+}
+
+.navbar-left .Home-Link:hover {
+    color: #9475fd;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.navbar-right .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 1rem;
+    font-size: 25px;
+}
+
+
+.navbar-right .nav-links li {
+    margin-right: 1rem;
+}
+
+.navbar-right .nav-links a {
+    color: #090132;
+    text-decoration: none;
+}
+
+.navbar-right .nav-links a:hover {
+    color: #2dfb95;
+}
+
+.navbar-right .Github-Logo{
+max-height: 5rem;
+}
+
+.navbar-right .Github-Logo .not-home{
+    max-height: 1rem;
+}
