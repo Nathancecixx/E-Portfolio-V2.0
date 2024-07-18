@@ -1,9 +1,19 @@
 .footer-section {
     background-color: #e3dcfe;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     padding: 200px;
 }
 
 .footer-text {
+    color: #090132;
+    width: 50%;
+}
 
+.text-highlight {
+    color: #9475fd;
 }

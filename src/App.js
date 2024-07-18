@@ -5,6 +5,7 @@ import AboutMe from "./Pages/AboutMe";
 import Footer from "./Pages/Footer"
 import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
+import Expertise from "./Pages/Expertise";
 
 function App() {
     const [IsHome, setIsHome] = useState(true);
@@ -41,6 +42,10 @@ function App() {
 
             <section id="about-me">
                 <AboutMe />
+            </section>
+
+            <section id="expertise">
+                <Expertise/>
             </section>
 
             <section id="projects">

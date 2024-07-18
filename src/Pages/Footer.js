@@ -4,7 +4,7 @@ import "./Footer.css"
 const Footer = () => {
     return (
         <div className="footer-section">
-            <p className="footer-text">This website was designed and written by Nathan Ceci using the react framwork paired with Github Pages for deployment.</p>
+            <span className="footer-text">Loosely designed in <span className="text-highlight">AdobeXD</span> and written using the <span className="text-highlight">Clion IDE</span> by Nathan Ceci. Built using the <span className="text-highlight">Javascript</span> framework <span className="text-highlight">react</span> paired with <span className="text-highlight">Github Pages</span> for deployment.</span>
 
         </div>
     );
