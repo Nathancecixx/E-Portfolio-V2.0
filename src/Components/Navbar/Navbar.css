@@ -14,8 +14,8 @@
 
 .navbar.not-home {
     position: fixed; /* Fix the navbar at the top */
-    //top: 0; /* Position at the top of the viewport */
-    //left: 0; /* Position at the left edge of the viewport */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Position at the left edge of the viewport */
     width: 100%; /* Ensure it spans the full width */
     background-color: rgba(227, 220, 254, 0.9); /* Slightly less transparent */
     color: white; /* Text color when not in home state */
@@ -37,8 +37,6 @@
     font-weight: bold;
     color: #090132;
     text-decoration: none;
-
-    //box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 5px 2px rgba(0,0,0,0.24);
 }
 
 .navbar-left .Home-Link:hover {
@@ -77,4 +75,42 @@ max-height: 5rem;
 
 .navbar-right .Github-Logo .not-home{
     max-height: 1rem;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+
+    .navbar-left, .navbar-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .navbar-right .nav-links {
+        font-size: 15px;
+    }
+
+    .navbar-right .nav-links li {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-right .Github-Logo {
+        max-height: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .navbar-left .Home-Link {
+        font-size: 20px;
+    }
+
+    .navbar-right .nav-links {
+        font-size: 14px;
+    }
+
+    .navbar-right .Github-Logo {
+        max-height: 3rem;
+    }
 }

@@ -33,7 +33,7 @@ const Navbar = ({ IsHome }) => {
 
                 <ul className="nav-links">
                     <li>
-                        <a href="#about-me">About Me</a>
+                        <a href="#about-me">About</a>
                     </li>
                     <li>
                         <a href="#projects">Projects</a>
