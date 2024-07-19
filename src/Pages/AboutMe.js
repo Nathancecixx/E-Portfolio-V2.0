@@ -6,7 +6,7 @@ import C_Logo from "../Resources/Icons/C_Logo.png";
 
 const AboutMe = () => {
     return (
-        <div id="about-me" className="about-me-section">
+        <div className="about-me-section">
 
             <h1 className="h1">About Me</h1>
 

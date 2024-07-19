@@ -7,14 +7,6 @@ const Navbar = ({ IsHome }) => {
 
     console.log('IsHome prop:', IsHome);
 
-    let extension = "NULL";
-
-    if(IsHome){
-        extension = "home";
-    } else {
-        extension = "not-home";
-    }
-
     return (
 
         <nav className={`navbar ${IsHome ? 'home' : 'not-home'}`}>
@@ -41,7 +33,7 @@ const Navbar = ({ IsHome }) => {
                 </ul>
 
                 <a href={"https://github.com/Nathancecixx"}>
-                    <img src={Github} alt={"Github Logo"} className={`Github-Logo ${IsHome ? 'home' : 'not-home'}}`}/>
+                    <img src={Github} alt={"Github Logo"} className={`Github-Logo ${IsHome ? 'home' : 'not-home'}`}/>
                 </a>
             </div>
 

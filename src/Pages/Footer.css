@@ -6,14 +6,27 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .footer-text {
     color: #090132;
-    width: 50%;
+    width: 35%;
+    font-size: 12px;
 }
 
 .text-highlight {
     color: #9475fd;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 480px) {
+    .footer-text {
+        width: 75%;
+    }
 }

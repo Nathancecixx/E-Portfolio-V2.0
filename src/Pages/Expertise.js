@@ -1,62 +1,22 @@
 
 import React from 'react'
 import InfoCard from "../Components/InfoCard/InfoCard";
-import C_Logo from "../Resources/Icons/C_Logo.png";
+
+import { skills } from "../Data/Skills";
+
+import "./Expertise.css"
 
 const Expertise = () => {
     return (
         <div className="expertise-section">
 
-            <h1>My Expertise</h1>
+            <h1 className="expertise-title">My Expertise</h1>
 
             <div className="card-container">
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
 
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
-
-                <InfoCard
-                    src={C_Logo}
-                    title="Github"
-                    text="This is a test card talking about github"
-                />
+                {skills.map((skill) => (
+                    <InfoCard classname="card" src={skill.image} title={skill.title} text={skill.description}/>
+                ))}
 
             </div>
         </div>
