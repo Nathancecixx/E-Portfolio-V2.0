@@ -6,6 +6,7 @@
     padding: 2rem;
     transition: top 5s ease-out; /* Smooth transition */
     z-index: 1000; /* Ensure it appears above other content */
+    box-sizing: border-box;
 }
 
 .navbar.home {
@@ -20,7 +21,7 @@
     background-color: rgba(227, 220, 254, 0.9); /* Slightly less transparent */
     color: white; /* Text color when not in home state */
     animation: dropDown 0.5s ease-in-out forwards; /* Apply the drop-down animation */
-    height: 2%;
+    height: 8%;
 }
 
 @keyframes dropDown {
@@ -72,6 +73,7 @@
 .navbar-right .Github-Logo{
     max-height: 4rem;
 }
+
 
 
 /* Media Queries for Responsiveness */
