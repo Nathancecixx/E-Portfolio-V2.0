@@ -54,6 +54,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    color: #090132;
 }
 
 .navbar-right .nav-links {
@@ -125,7 +126,7 @@
     .navbar-right .nav-links li {
         margin: 0;
         padding: 1rem;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid #090132;
     }
 
     .Github-Logo {
