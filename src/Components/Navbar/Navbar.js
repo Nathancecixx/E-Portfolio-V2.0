@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Navbar.css';
-
 import Github from "../../Resources/Icons/GithubLogo.png"
 
-const Navbar = ({ IsHome }) => {
+const Navbar = ({ isHome }) => {
 
-    console.log('IsHome prop:', IsHome);
+    const [menuOpen, setMenuState] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuState(!menuOpen)
+    }
+
+    useEffect(() => {
+        console.log({isHome})
+        if(!isHome) {
+            setMenuState(false);
+        }
+    }, [isHome]);
 
     return (
 
-        <nav className={`navbar ${IsHome ? 'home' : 'not-home'}`}>
+        <nav className={`navbar ${isHome ? 'home' : 'not-home'}`}>
 
             <div className="navbar-left">
                 <a href="/" className="Home-Link">
@@ -17,24 +27,35 @@ const Navbar = ({ IsHome }) => {
                 </a>
             </div>
 
+
             <div className="navbar-center">
 
             </div>
 
+
             <div className="navbar-right">
 
-                <ul className="nav-links">
+                <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
                     <li>
                         <a href="#about-me">About</a>
                     </li>
                     <li>
+                        <a href="#expertise">Expertise</a>
+                    </li>
+                    <li>
                         <a href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href={"https://github.com/Nathancecixx"}>
+                            <img src={Github} alt={"Github Logo"} className={`Github-Logo ${isHome ? 'home' : 'not-home'}`}/>
+                        </a>
                     </li>
                 </ul>
 
-                <a href={"https://github.com/Nathancecixx"}>
-                    <img src={Github} alt={"Github Logo"} className={`Github-Logo ${IsHome ? 'home' : 'not-home'}`}/>
-                </a>
+                <button className="menu-toggle" onClick={toggleMenu}>
+                    ☰
+                </button>
+
             </div>
 
         </nav>

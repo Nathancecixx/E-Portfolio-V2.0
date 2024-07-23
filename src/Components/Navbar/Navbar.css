@@ -4,32 +4,32 @@
     align-items: center;
     background-color: #e3dcfe;
     padding: 2rem;
-    transition: top 5s ease-out; /* Smooth transition */
-    z-index: 1000; /* Ensure it appears above other content */
+    transition: top 5s ease-out;
+    z-index: 1000;
     box-sizing: border-box;
 }
 
 .navbar.home {
-    position: relative; /* Initially relative */
+    position: relative;
 }
 
 .navbar.not-home {
-    position: fixed; /* Fix the navbar at the top */
-    top: 0; /* Position at the top of the viewport */
-    left: 0; /* Position at the left edge of the viewport */
-    width: 100%; /* Ensure it spans the full width */
-    background-color: rgba(227, 220, 254, 0.9); /* Slightly less transparent */
-    color: white; /* Text color when not in home state */
-    animation: dropDown 0.5s ease-in-out forwards; /* Apply the drop-down animation */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(227, 220, 254, 0.9);
+    color: white;
+    animation: dropDown 0.5s ease-in-out forwards;
     height: 8%;
 }
 
 @keyframes dropDown {
     0% {
-        top: -100px; /* Start above the viewport */
+        top: -100px;
     }
     100% {
-        top: 0; /* End at the top of the viewport */
+        top: 0;
     }
 }
 
@@ -48,12 +48,21 @@
     display: flex;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .navbar-right .nav-links {
     list-style-type: none;
     display: flex;
     margin: 0;
     padding: 1rem;
     font-size: 25px;
+    align-items: center;
 }
 
 
@@ -76,39 +85,64 @@
 
 
 
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+    .navbar {
+        //flex-direction: column;
+        //padding: 1rem;
+    }
 
     .navbar-left, .navbar-right {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 1rem;
+        //width: 100%;
+        //text-align: center;
+        //margin-bottom: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .navbar-right .nav-links {
-        font-size: 15px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1001;
+
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(227, 220, 254, 0.9);
+
+    }
+
+    .navbar-right .nav-links.open {
+        display: flex;
     }
 
     .navbar-right .nav-links li {
-        margin-bottom: 1rem;
+        margin: 0;
+        padding: 1rem;
+        border-top: 1px solid #ccc;
     }
 
-    .navbar-right .Github-Logo {
-        max-height: 3rem;
+    .Github-Logo {
+        max-height: 4rem;
     }
 }
 
 @media (max-width: 480px) {
-
     .navbar-left .Home-Link {
-        font-size: 20px;
+        font-size: 1.5rem;
     }
 
     .navbar-right .nav-links {
-        font-size: 14px;
+        font-size: 18px;
     }
 
-    .navbar-right .Github-Logo {
+    .Github-Logo {
         max-height: 3rem;
     }
 }

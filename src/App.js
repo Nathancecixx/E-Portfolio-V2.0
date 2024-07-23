@@ -8,7 +8,7 @@ import Contact from "./Pages/Contact";
 import Expertise from "./Pages/Expertise";
 
 function App() {
-    const [IsHome, setIsHome] = useState(true);
+    const [isHome, setIsHome] = useState(true);
 
     const handleScroll = () => {
         const scrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -28,13 +28,9 @@ function App() {
         };
     }, []);
 
-    useEffect(() => {
-        console.log("IsHome = " + IsHome)
-    }, [IsHome]);
-
     return (
         <>
-            <Navbar IsHome={IsHome}/>
+            <Navbar isHome={isHome}/>
 
             <section id="home">
                 <Home />
