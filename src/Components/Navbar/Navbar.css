@@ -1,8 +1,8 @@
 .navbar {
+    background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e3dcfe;
     padding: 2rem;
     transition: top 5s ease-out;
     z-index: 1000;
@@ -18,7 +18,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(227, 220, 254, 0.9);
+    background-color: var(--background-color);
     color: white;
     animation: dropDown 0.5s ease-in-out forwards;
     height: 8%;
@@ -36,12 +36,12 @@
 .navbar-left .Home-Link {
     font-size: 2rem;
     font-weight: bold;
-    color: #090132;
+    color: var(--navbar-text-color);
     text-decoration: none;
 }
 
 .navbar-left .Home-Link:hover {
-    color: #9475fd;
+    color: var(--accent-color-one);
 }
 
 .navbar-right {
@@ -54,7 +54,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #090132;
+    color: var(--navbar-text-color);
 }
 
 .navbar-right .nav-links {
@@ -72,16 +72,48 @@
 }
 
 .navbar-right .nav-links a {
-    color: #090132;
+    color: var(--navbar-text-color);
     text-decoration: none;
 }
 
 .navbar-right .nav-links a:hover {
-    color: #2dfb95;
+    color: var(--accent-color-two);
 }
 
 .navbar-right .Github-Logo{
     max-height: 4rem;
+}
+
+
+/* Toggle Switch Styles */
+.theme-toggle {
+    width: 50px;
+    height: 25px;
+    background-color: var(--background-color-accent);
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.theme-toggle .toggle-thumb {
+    width: 23px;
+    height: 23px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.theme-toggle.dark .toggle-thumb {
+    transform: translateX(25px);
+    background-color: var(--text-color);
+}
+
+.theme-toggle.dark {
+    background-color: var(--background-color-accent);
 }
 
 
@@ -115,7 +147,7 @@
         width: 100%;
         padding: 0;
         margin: 0;
-        background-color: rgba(227, 220, 254, 0.9);
+        background-color: var(--background-color);
 
     }
 
@@ -126,7 +158,7 @@
     .navbar-right .nav-links li {
         margin: 0;
         padding: 1rem;
-        border-top: 1px solid #090132;
+        border-top: 1px solid var(--navbar-text-color);
     }
 
     .Github-Logo {

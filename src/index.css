@@ -1,3 +1,27 @@
+:root {
+  --background-color: #e3dcfe;
+  --background-color-accent: #d7d1f3;
+  --text-color: #333;
+  --navbar-text-color: #090132;
+  --accent-color-one: #9475fd;
+  --accent-color-two: #2dfb95;
+  --github-logo-height: 4rem;
+}
+
+[data-theme="dark"] {
+  --background-color: #080123;
+  --background-color-accent: #9777fd;
+  --text-color: #d5cdfe;
+  --navbar-text-color: #d5cdfe;
+  --accent-color-one: #5fa003;
+  --accent-color-two: #2dfb94;
+  --github-logo-height: 4rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

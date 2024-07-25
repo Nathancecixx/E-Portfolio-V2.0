@@ -1,5 +1,5 @@
 .footer-section {
-    background-color: #e3dcfe;
+    background-color: var(--background-color);
     text-align: center;
 
     display: flex;
@@ -11,13 +11,13 @@
 }
 
 .footer-text {
-    color: #090132;
+    color: var(--text-color);
     width: 35%;
     font-size: 12px;
 }
 
 .text-highlight {
-    color: #9475fd;
+    color: var(--accent-color-one);
 }
 
 /* Media Queries for Responsiveness */

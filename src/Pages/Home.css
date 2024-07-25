@@ -1,5 +1,5 @@
 .background {
-    background: #e3dcfe;
+    background: var(--background-color);
     height: 100vh; /* Ensure the background covers the full viewport height */
     //display: flex;
     //justify-content: center;
@@ -18,7 +18,7 @@
 .big-text {
     font-size: 200px;
     font-weight: bold;
-    background: linear-gradient(to right, #9475fd 30%, #2dfb95 70%);
+    background: linear-gradient(to right, var(--accent-color-one) 30%, var(--accent-color-two) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -30,10 +30,11 @@
     margin: 0; /* Remove default margin */
     /* Optionally, add some padding if needed */
     padding-top: 10px; /* Adjust padding between the texts as needed */
-    color: #333; /* Set a color for the text */
+    color: var(--text-color); /* Set a color for the text */
 }
 
 .arrow {
+    color: var(--text-color);
     font-size: 50px;
     margin-top: 125px;
     cursor: pointer;

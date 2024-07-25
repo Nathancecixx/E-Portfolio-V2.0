@@ -9,6 +9,11 @@ import Expertise from "./Pages/Expertise";
 
 function App() {
     const [isHome, setIsHome] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    }
 
     const handleScroll = () => {
         const scrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -21,6 +26,8 @@ function App() {
 
     };
 
+
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -28,9 +35,17 @@ function App() {
         };
     }, []);
 
+    useEffect(() => {
+        if(darkMode) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    }, [darkMode]);
+
     return (
         <>
-            <Navbar isHome={isHome}/>
+            <Navbar isHome={isHome} darkMode={darkMode} toggleDarkMode={{toggleDarkMode}}/>
 
             <section id="home">
                 <Home />
