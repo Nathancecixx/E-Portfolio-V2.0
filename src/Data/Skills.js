@@ -1,14 +1,13 @@
-import Github_Logo from "../Resources/Icons/GithubLogo.png";
-import C_Logo from "../Resources/Icons/C_Logo.png";
 import OOP_Logo from "../Resources/Icons/OOP.png";
 import DSA from "../Resources/Icons/D&A.png";
+import Handshake from "../Resources/Icons/Handshake.png";
 
 export const skills = [
     {
         title: "Object Oriented Programming (OOP)",
         subtitle: "MERN Stack",
         description:
-            "One of the best skills I have in my arsenal is my familiarity with the Object Oriented approach to programming. Right from the jump I learned to program with these concepts as in grade 10 my first real language was java. Over the years I have increased my familiarity with not only java, but the OOP concept itself with other languages such as C++, Javascript, and Python",
+            "One of the best skills I have in my arsenal is my familiarity with the Object Oriented approach to programming. Right from the jump I learned to program with these concepts as in grade 10 my first real language was java. Over the years I have increased my familiarity with not only java, but the OOP concept itself with other languages such as C++, and C#",
         image: OOP_Logo,
         link: "https://reactbootcamp.com",
     },
@@ -21,19 +20,11 @@ export const skills = [
         link: "https://reedbarger.com",
     },
     {
-        title: "DevChat",
+        title: "Team Oriented Work",
         subtitle: "React and Firebase",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: C_Logo,
+            "During the time ive been in school I have had the opportunity to experience plenty of group work through projects. I worked with range of people on a wide variety of problems in C ranging from triangle and different shape classifiers, basic file encryption software, or even an implementation of the machine learning K Nearest Neighbors algorithm (K-NN). Each of these ventures where vastly successful being great opportunities to learn.",
+        image: Handshake,
         link: "https://jsbootcamp.com",
-    },
-    {
-        title: "Epic Todo App",
-        subtitle: "React Hooks",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: Github_Logo,
-        link: "https://pythonbootcamp.com",
     },
 ];
