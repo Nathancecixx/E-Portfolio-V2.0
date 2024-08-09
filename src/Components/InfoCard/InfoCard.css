@@ -4,8 +4,8 @@
 }
 
 .card-image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
     padding-right: 4rem;
     align-self: center;
 }
@@ -15,12 +15,29 @@
 }
 
 .title {
-    font-size: 50px;
+    font-size: 20px;
 }
 
 .paragraph {
     font-size: 16px;
 }
+
+.tech-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: 20px;
+}
+
+.tech-item {
+    background-color: var(--highlight-color-two);
+    color: var(--highlight-color-one);
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+}
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
@@ -35,6 +52,10 @@
 
     .card-text {
         text-align: center;
+    }
+
+    .tech-item {
+        font-size: 12px;
     }
 }
 
