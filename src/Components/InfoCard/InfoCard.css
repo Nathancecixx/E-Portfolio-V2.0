@@ -24,6 +24,9 @@
 
 .tech-list {
     display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: 20px;
 }
 
 .tech-item {

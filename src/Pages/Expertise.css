@@ -40,13 +40,6 @@
     margin: 100px;
 }
 
-.tech-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
 .tech-bullet {
     display: flex;
     align-items: center;
@@ -104,5 +97,20 @@
 @media (max-width: 768px) {
     .tech-section {
         margin: 1px;
+    }
+
+    .tech-card {
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+
+    .tech-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .tech-section {
+        gap: 10px;
     }
 }

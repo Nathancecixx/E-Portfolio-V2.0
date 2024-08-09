@@ -1,7 +1,7 @@
 .about-me-section {
     background-color: var(--background-color-accent);
-    text-align: left;
-    padding-top: 500px;
+    text-align: center;
+    padding-top: 300px;
 
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
 .paragraph-section {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
 }
 
 .paragraph-text {
@@ -22,41 +22,22 @@
 .paragraph-image {
     height: 250px;
     width: 250px;
-    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.3);
-}
-
-.h1 {
-    //font-size: 50px;
-}
-
-.p1 {
-    //width: 50%;
-}
-
-.p2 {
-    //width: 50%;
-}
-
-.p3 {
-    //width: 50%;
+    margin-bottom: 50px;
+    //box-shadow: 0 4px 8px rgba(1, 1, 1, 0.3);
 }
 
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+    .paragraph-text{
+        width: 75%;
+    }
 
+    .about-me-section {
+        padding-top: 200px;
+    }
 }
 
 @media (max-width: 480px) {
-    .p1 {
-        width: 75%;
-    }
 
-    .p2 {
-        width: 75%;
-    }
-
-    .p3 {
-        width: 75%;
-    }
 }
