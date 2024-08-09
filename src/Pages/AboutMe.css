@@ -1,7 +1,7 @@
 .about-me-section {
     background-color: var(--background-color-accent);
-    text-align: center;
-    padding-top: 200px;
+    text-align: left;
+    padding-top: 500px;
 
     display: flex;
     flex-direction: column;
@@ -9,20 +9,36 @@
     min-height: 100vh;
 }
 
+.paragraph-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.paragraph-text {
+    width: 40%;
+}
+
+.paragraph-image {
+    height: 250px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.3);
+}
+
 .h1 {
-    font-size: 50px;
+    //font-size: 50px;
 }
 
 .p1 {
-    width: 50%;
+    //width: 50%;
 }
 
 .p2 {
-    width: 50%;
+    //width: 50%;
 }
 
 .p3 {
-    width: 50%;
+    //width: 50%;
 }
 
 

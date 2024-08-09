@@ -5,6 +5,8 @@
   --navbar-text-color: #090132;
   --accent-color-one: #9475fd;
   --accent-color-two: #2dfb95;
+  --highlight-color-one: #9475fd;
+  --highlight-color-two: rgba(139, 105, 255, 0.20);
   --github-logo-height: 4rem;
 }
 
@@ -13,8 +15,10 @@
   --background-color-accent: #9777fd;
   --text-color: #d5cdfe;
   --navbar-text-color: #d5cdfe;
-  --accent-color-one: #5fa003;
-  --accent-color-two: #2dfb94;
+  --accent-color-one: #009688 ;
+  --accent-color-two: #ff7043 ;
+  --highlight-color-one: #9777fd;
+  --highlight-color-two: #080123;
   --github-logo-height: 4rem;
 }
 
