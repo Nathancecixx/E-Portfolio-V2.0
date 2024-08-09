@@ -17,8 +17,8 @@
   --navbar-text-color: #d5cdfe;
   --accent-color-one: #009688 ;
   --accent-color-two: #ff7043 ;
-  --highlight-color-one: #9777fd;
-  --highlight-color-two: #080123;
+  --highlight-color-one: #16c1b1;
+  --highlight-color-two: rgba(0 , 150, 136, 0.20);
   --github-logo-height: 4rem;
 }
 

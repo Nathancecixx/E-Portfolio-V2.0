@@ -6,14 +6,11 @@ import Footer from "./Pages/Footer"
 import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import Expertise from "./Pages/Expertise";
+import useDarkMode from "./Components/Hooks/ThemeHook";
 
 function App() {
     const [isHome, setIsHome] = useState(true);
-    const [darkMode, setDarkMode] = useState(false);
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-    }
+    const [darkMode, toggleDarkMode] = useDarkMode();
 
     const handleScroll = () => {
         const scrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -35,28 +32,20 @@ function App() {
         };
     }, []);
 
-    useEffect(() => {
-        if(darkMode) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    }, [darkMode]);
-
     return (
         <>
-            <Navbar isHome={isHome} darkMode={darkMode} toggleDarkMode={{toggleDarkMode}}/>
+            <Navbar isHome={isHome} darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
 
             <section id="home">
                 <Home />
             </section>
 
             <section id="about-me">
-                <AboutMe />
+                <AboutMe darkMode={darkMode}/>
             </section>
 
             <section id="expertise">
-                <Expertise/>
+                <Expertise darkMode={darkMode}/>
             </section>
 
             <section id="projects">

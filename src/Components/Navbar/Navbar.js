@@ -30,7 +30,7 @@ const Navbar = ({ isHome, darkMode, toggleDarkMode}) => {
 
 
             <div className="navbar-center">
-                <div className={`theme-toggle ${darkMode ? 'dark' : 'light'}`} onClick={toggleDarkMode.toggleDarkMode}>
+                <div className={`theme-toggle ${darkMode ? 'dark' : 'light'}`} onClick={toggleDarkMode}>
                     <div className="toggle-thumb"></div>
                 </div>
             </div>
