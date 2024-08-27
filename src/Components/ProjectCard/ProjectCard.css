@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.project-card:hover {
+    box-shadow: 0 4px 8px var(--accent-color-one);
+}
+
 .project-card-image {
     width: 100%;
     height: auto;
