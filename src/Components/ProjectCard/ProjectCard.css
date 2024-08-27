@@ -1,0 +1,132 @@
+.project-card {
+    width: 30%;
+    margin: 10px;
+    border: 1px solid var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.project-card-image {
+    width: 100%;
+    height: auto;
+}
+
+.project-card-text {
+    padding: 15px;
+    color: var(--highlight-color-one);
+}
+
+.project-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-subtitle {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.project-tech-item {
+    background-color: var(--highlight-color-two);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.dropdown-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-button:hover {
+    color: var(--accent-color-two);
+}
+
+.project-paragraph {
+    color: var(--text-color);
+}
+
+.project-description {
+    margin-top: 15px;
+    border-top: 1px solid var(--text-color);
+    padding-top: 10px;
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+    color: var(--accent-color-one);
+}
+
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .project-card {
+        width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        width: 100%; /* One card per row on mobile */
+        margin: 10px 0;
+    }
+
+    .project-card-text {
+        text-align: center;
+    }
+
+    .project-tech-list {
+        justify-content: center;
+    }
+
+    .project-tech-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card-text {
+        padding: 10px;
+    }
+
+    .project-title {
+        font-size: 1.2em;
+    }
+
+    .dropdown-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .project-tech-item {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
+}

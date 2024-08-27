@@ -1,6 +1,9 @@
 .card {
     display: flex;
     justify-content: center;
+    //border-top: 2px solid var(--highlight-color-two);
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
 
 .card-image {
@@ -12,6 +15,7 @@
 
 .card-text {
     max-width: 500px;
+    color: var(--text-color);
 }
 
 .title {
@@ -44,6 +48,9 @@
     .card {
         flex-direction: column;
         align-items: center;
+    }
+    .tech-list {
+        justify-content: center;
     }
 
     .card-image {

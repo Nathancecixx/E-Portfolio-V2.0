@@ -49,7 +49,7 @@ function App() {
             </section>
 
             <section id="projects">
-
+                <Projects darkMode={darkMode}/>
             </section>
 
             <Footer/>

@@ -11,33 +11,126 @@
 
 .paragraph-section {
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Add some space between elements */
+}
+
+.about-me-title {
+    color: var(--text-color);
 }
 
 .paragraph-text {
-    width: 40%;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    text-align: left; /* Align text to the left */
 }
 
 .paragraph-image {
     height: 250px;
     width: 250px;
-    margin-bottom: 50px;
-    //box-shadow: 0 4px 8px rgba(1, 1, 1, 0.3);
 }
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-25px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.tech-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px; /* Add space above the tech stack */
+}
+
+.tech-title {
+    color: var(--text-color);
+}
+
+.tech-card {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounce 3s infinite;
+    background-color: var(--background-color);
+}
+
+.tech-card:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.tech-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tech-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.tech-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.tech-card:nth-child(5) {
+    animation-delay: 0.1s;
+}
+
+.tech-card:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+}
+
+.tech-logo {
+    width: 50px;
+    height: 50px;
+}
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .paragraph-text{
+    .tech-card {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tech-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .tech-section {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 860px) {
+    .paragraph-text {
         width: 75%;
     }
 
     .about-me-section {
         padding-top: 200px;
+        padding-bottom: 20px;
     }
-}
-
-@media (max-width: 480px) {
-
 }
