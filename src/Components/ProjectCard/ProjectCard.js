@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProjectCard.css';
 
-const ProjectCard = ({ src, title, subtitle, text, list, githubLink }) => {
+const ProjectCard = ({ src, title, subtitle, text, list, githubLink, websiteLink }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
@@ -21,14 +21,28 @@ const ProjectCard = ({ src, title, subtitle, text, list, githubLink }) => {
                         </div>
                     ))}
                 </div>
-                <a
-                    href={githubLink}
-                    className="github-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    View on GitHub
-                </a>
+                {githubLink && (
+                    <a
+                        href={githubLink}
+                        className="github-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View on GitHub
+                    </a>
+                )}
+
+                {websiteLink && (
+                    <a
+                        href={websiteLink}
+                        className="github-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        Visit Website
+                    </a>
+                )}
+
                 <button className="dropdown-button" onClick={toggleDropdown}>
                     {isOpen ? "Hide ▲" : " Read More ▼"}
                 </button>
