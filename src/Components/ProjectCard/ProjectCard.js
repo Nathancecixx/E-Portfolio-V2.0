@@ -21,6 +21,7 @@ const ProjectCard = ({ src, title, subtitle, text, list, githubLink, websiteLink
                         </div>
                     ))}
                 </div>
+                
                 {githubLink && (
                     <a
                         href={githubLink}

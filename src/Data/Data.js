@@ -6,6 +6,7 @@ import Encrypterizer_Demo from "../Resources/Images/Encrypterizer_Demo.png"
 import EloEngineer_Demo from "../Resources/Images/EloEngineer_Demo.png"
 import BitNByte_Demo from "../Resources/Images/BitNByte_Demo.png"
 import Notify_Demo from "../Resources/Images/Notify_Demo.PNG"
+import UFC_Demo from "../Resources/Images/UFC_Demo.png"
 import Recipe_Demo from "../Resources/Images/Recipe_Demo.png"
 
 
@@ -64,6 +65,17 @@ export const projects = [
     },
     {
         id: "3",
+        title: "UFC Stats Hub",
+        subtitle: "React website to display UFC statistics",
+        description:
+            "",
+        image: UFC_Demo,
+        github_link: "",
+        website_link: "https://ufcstats.ca",
+        techStack: ['Javascript', 'React', 'Material UI']
+    },
+    {
+        id: "4",
         title: "Notify",
         subtitle: "Basic GUI Note Taking Reminder App",
         description:
@@ -72,17 +84,6 @@ export const projects = [
         github_link: "https://github.com/Nathancecixx/Notify",
         website_link: "",
         techStack: ['Python', 'TKinter', 'SQLite']
-    },
-    {
-        id: "4",
-        title: "Recipe Book",
-        subtitle: "Basic CLI Recipe Book",
-        description:
-            "",
-        image: Recipe_Demo,
-        github_link: "https://github.com/Nathancecixx/RecipeBook",
-        website_link: "",
-        techStack: ['C', 'Github']
     },
     {
         id: "5",
