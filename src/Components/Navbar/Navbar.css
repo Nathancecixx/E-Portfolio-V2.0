@@ -61,7 +61,6 @@
     list-style-type: none;
     display: flex;
     margin: 0;
-    padding: 1rem;
     font-size: 25px;
     align-items: center;
 }
@@ -81,7 +80,12 @@
 }
 
 .navbar-right .Github-Logo{
-    max-height: 4rem;
+    max-height: 3rem;
+    padding-right: 4px;
+}
+
+.navbar-right .Linkedin-Logo{
+    max-height: 3rem;
 }
 
 
@@ -120,7 +124,7 @@
 
 
 /* Media Queries for Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 925px) {
     .navbar {
         //flex-direction: column;
         //padding: 1rem;
@@ -164,6 +168,9 @@
     .Github-Logo {
         max-height: 4rem;
     }
+    .Linkedin-Logo {
+        max-height: 4rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -176,6 +183,9 @@
     }
 
     .Github-Logo {
+        max-height: 3rem;
+    }
+    .Linkedin-Logo {
         max-height: 3rem;
     }
 }

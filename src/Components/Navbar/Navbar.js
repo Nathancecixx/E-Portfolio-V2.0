@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './Navbar.css';
 import Github_light from "../../Resources/Icons/GithubLogo.png"
 import Github_Dark from "../../Resources/Icons/GithubLogo(Dark).png"
+import Linkedin_Light from "../../Resources/Icons/LinkedInLogo.png"
+import Linkedin_Dark from "../../Resources/Icons/LinkedInLogo(Dark).png"
 
 const Navbar = ({ isHome, darkMode, toggleDarkMode}) => {
 
@@ -55,6 +57,15 @@ const Navbar = ({ isHome, darkMode, toggleDarkMode}) => {
                             }
                             {darkMode === false &&
                                 <img src={Github_light} alt={"Github Logo"} className={`Github-Logo ${isHome ? 'home' : 'not-home'}`}/>
+                            }
+                        </a>
+
+                        <a href={"https://www.linkedin.com/in/nathan-ceci"}>
+                            {darkMode === true &&
+                                <img src={Linkedin_Dark} alt={"Linkedin Logo"} className={`Linkedin-Logo ${isHome ? 'home' : 'not-home'}`}/>
+                            }
+                            {darkMode === false &&
+                                <img src={Linkedin_Light} alt={"Linkedin Logo"} className={`Linkedin-Logo ${isHome ? 'home' : 'not-home'}`}/>
                             }
                         </a>
                     </li>
