@@ -8,6 +8,7 @@ import BitNByte_Demo from "../Resources/Images/BitNByte_Demo.png"
 import Notify_Demo from "../Resources/Images/Notify_Demo.PNG"
 import UFC_Demo from "../Resources/Images/UFC_Demo.png"
 import Recipe_Demo from "../Resources/Images/Recipe_Demo.png"
+import LilWiz_Demo from "../Resources/Images/LilWizDemo.png"
 
 
 export const skills = [
@@ -46,7 +47,7 @@ export const projects = [
         title: "Devify",
         subtitle: "Discord Server Team Development Kit",
         description:
-            "In collaboration with a fellow classmate, I developed Devify, a full-stack Discord bot application aimed at transforming Discord servers into optimal communication hubs for development teams. The front-end website, built using React and hosted on Vercel, offers users a streamlined interface to access the bot's features. The backend API server, developed with Python and Flask, was hosted on Heroku alongside the bot itself. Devify is designed to enhance team collaboration with a range of helpful commands and server management features, all tailored to meet the needs of development teams. The system also utilizes a robust database to store server-specific data, ensuring customized functionality and seamless operation across different servers. This project not only demonstrated our technical skills but also our commitment to creating tools that facilitate effective teamwork and communication.",
+            "In collaboration with a fellow classmate, I'm developing Devify, a full-stack Discord bot application aimed at transforming Discord servers into optimal communication hubs for development teams. The front-end website, built using React and hosted on Vercel, offers users a streamlined interface to access the bot's features. The backend API server, developed with Python and Flask, was hosted on Heroku alongside the bot itself. Devify is designed to enhance team collaboration with a range of helpful commands and server management features, all tailored to meet the needs of development teams. The system also utilizes a robust database to store server-specific data, ensuring customized functionality and seamless operation across different servers. This project not only demonstrated our technical skills but also our commitment to creating tools that facilitate effective teamwork and communication.",
         image: Devify_Demo,
         github_link: "https://github.com/Nathancecixx/Devify_Bot",
         website_link: "",
@@ -68,7 +69,7 @@ export const projects = [
         title: "UFC Stats Hub",
         subtitle: "React website to display UFC statistics",
         description:
-            "",
+            "As a hobby project I decided to create my take on a UFC stat website. I have a backend REST api that I can request a range of different stats and info from.  For the frontend, I used React JS along with the Material UI library to achieve a responsive, polished, and consistent user experience.",
         image: UFC_Demo,
         github_link: "",
         website_link: "https://ufcstats.ca",
@@ -76,14 +77,14 @@ export const projects = [
     },
     {
         id: "4",
-        title: "Notify",
-        subtitle: "Basic GUI Note Taking Reminder App",
+        title: "Little Wizard",
+        subtitle: "VARLab GameJam fall 2024",
         description:
-            "Notify is designed to be a school/workplace utility program. The GUI is made with TKinter in Python and allows for basic note taking functionality. The notes are saved to a SQLite local database and persists any styles applied to them on save. I utilize the pystray and plyer in order to allow users to set reminders with the app being minimized to tray on exit.",
-        image: Notify_Demo,
-        github_link: "https://github.com/Nathancecixx/Notify",
-        website_link: "",
-        techStack: ['Python', 'TKinter', 'SQLite']
+            "In my second year at Conestoga College, I joined six classmates for an intensive four-day game jam hosted by the college's Virtual and Augmented Reality Lab (VARLab) during study week. As the only team member with prior experience in Godot and GDScript, I took the lead in introducing these tools, and thanks to my teammates' eagerness to learn, we quickly found our rhythm. Together, we overcame the challenge and crafted a project we’re genuinely proud of.",
+        image: LilWiz_Demo,
+        github_link: "",
+        website_link: "https://nathanceci.itch.io/little-wizard",
+        techStack: ['Godot', 'GdScript', 'Asprite']
     },
     {
         id: "5",
