@@ -48,9 +48,15 @@ const AboutMe = ({ darkMode }) => {
 
             <h1 className="tech-title" data-aos="fade-up">My Technologies</h1>
             <div className="tech-section">
-                {Object.keys(logos).map((tech) => (
-                    <div className="tech-card" key={tech} data-aos="zoom-in">
-                        <img className="tech-logo" src={darkMode ? logos[tech].dark : logos[tech].light} alt={`${tech} logo`} />
+                {Object.keys(logos).map((tech, index) => (
+                    <div className="card-section" key={tech}>
+                        <div className="tech-card" data-aos="zoom-in"
+                             style={{ animationDelay: `${0.2 * index}s` }}>
+                            <img className="tech-logo" src={darkMode ? logos[tech].dark : logos[tech].light} alt={`${tech} logo`} />
+                        </div>
+                        <div className="tech-name">
+                            <h5 className="name">{tech}</h5>
+                        </div>
                     </div>
                 ))}
             </div>

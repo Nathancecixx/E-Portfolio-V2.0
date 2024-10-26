@@ -1,7 +1,7 @@
 .about-me-section {
     background-color: var(--background-color-accent);
     text-align: center;
-    padding-top: 300px;
+    padding-top: 200px;
 
     display: flex;
     flex-direction: column;
@@ -48,6 +48,11 @@
     }
 }
 
+.card-section {
+    display: flex;
+    flex-direction: column;
+}
+
 .tech-section {
     display: flex;
     align-items: center;
@@ -74,32 +79,25 @@
     background-color: var(--background-color);
 }
 
-.tech-card:nth-child(1) {
-    animation-delay: 0.4s;
+.tech-name {
+    position: relative;
+    margin-top: 10px;
+    width: 75px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color);
 }
 
-.tech-card:nth-child(2) {
-    animation-delay: 0.2s;
+.card-section:hover .tech-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.tech-card:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.tech-card:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.tech-card:nth-child(5) {
-    animation-delay: 0.1s;
-}
-
-.tech-card:nth-child(6) {
-    animation-delay: 0.5s;
-}
-
-.tech-card:hover {
-    transform: translateY(-10px);
+.card-section:hover .tech-name {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .tech-logo {
@@ -107,22 +105,11 @@
     height: 50px;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .tech-card {
-        width: 50px;
-        height: 50px;
-    }
-
-    .tech-logo {
-        width: 25px;
-        height: 25px;
-    }
-
-    .tech-section {
-        gap: 10px;
-    }
+.name {
+    color: var(--text-color);
 }
+
+/* Media Queries for Responsiveness */
 
 @media (max-width: 860px) {
     .paragraph-text {
@@ -132,5 +119,15 @@
     .about-me-section {
         padding-top: 200px;
         padding-bottom: 20px;
+    }
+
+    .tech-section {
+        padding-left: 30px;
+        padding-right: 30px;
+        gap: 50px;
+        display: flex;
+        flex-direction: row; /* Set direction to row */
+        flex-wrap: wrap; /* Allow wrapping to create multiple rows */
+        justify-content: center; /* Center the items horizontally */
     }
 }
