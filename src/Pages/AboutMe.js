@@ -54,7 +54,8 @@ const AboutMe = ({ darkMode }) => {
                              style={{ animationDelay: `${0.2 * index}s` }}>
                             <img className="tech-logo" src={darkMode ? logos[tech].dark : logos[tech].light} alt={`${tech} logo`} />
                         </div>
-                        <div className="tech-name">
+                        <div className="tech-name" data-aos="zoom-in"
+                             style={{ animationDelay: `${0.2 * index}s` }}>
                             <h5 className="name">{tech}</h5>
                         </div>
                     </div>
