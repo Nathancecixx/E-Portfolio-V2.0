@@ -9,6 +9,7 @@ import Notify_Demo from "../Resources/Images/Notify_Demo.PNG"
 import UFC_Demo from "../Resources/Images/UFC_Demo.png"
 import Recipe_Demo from "../Resources/Images/Recipe_Demo.png"
 import LilWiz_Demo from "../Resources/Images/LilWizDemo.png"
+import DriveAware from "../Resources/Images/DriveAware_Demo.png"
 
 
 export const skills = [
@@ -44,14 +45,14 @@ export const skills = [
 export const projects = [
     {
         id: "1",
-        title: "Devify",
-        subtitle: "Discord Server Team Development Kit",
+        title: "Drive Aware",
+        subtitle: "Effortless Tracking for Safer, Smarter Driving",
         description:
-            "In collaboration with a fellow classmate, I'm developing Devify, a full-stack Discord bot application aimed at transforming Discord servers into optimal communication hubs for development teams. The front-end website, built using React and hosted on Vercel, offers users a streamlined interface to access the bot's features. The backend API server, developed with Python and Flask, was hosted on Heroku alongside the bot itself. Devify is designed to enhance team collaboration with a range of helpful commands and server management features, all tailored to meet the needs of development teams. The system also utilizes a robust database to store server-specific data, ensuring customized functionality and seamless operation across different servers. This project not only demonstrated our technical skills but also our commitment to creating tools that facilitate effective teamwork and communication.",
-        image: Devify_Demo,
-        github_link: "https://github.com/Nathancecixx/Devify_Bot",
+            "In collaboration with a team of classmates, we developed Drive Aware using agile sprint methodologies, leveraging Azure Boards for project management. The project involved comprehensive systems analysis and design, including the creation of various diagrams such as sequence diagrams, use case diagrams, and more, to ensure a well-structured and efficient development process.",
+        image: DriveAware,
+        github_link: "https://github.com/Nathancecixx/Group5F24",
         website_link: "",
-        techStack: ['Python', 'Flask', 'Javascript', 'React', 'MongoDB', 'Discord API']
+        techStack: ['Javascript', 'React Native', 'Python', 'Flask', 'SQLite']
     },
     {
         id: "2",
