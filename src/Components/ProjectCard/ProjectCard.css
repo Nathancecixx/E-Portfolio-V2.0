@@ -73,6 +73,11 @@
     padding-top: 10px;
 }
 
+.link-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .github-link {
     display: inline-block;
     margin-top: 10px;

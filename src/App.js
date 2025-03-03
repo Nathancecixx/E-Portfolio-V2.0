@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import AboutMe from "./Pages/AboutMe";
 import Footer from "./Pages/Footer"
 import Projects from "./Pages/Projects";
+import Gamejams from "./Pages/Gamejam";
 import Contact from "./Pages/Contact";
 import Expertise from "./Pages/Expertise";
 import useDarkMode from "./Components/Hooks/ThemeHook";
@@ -50,6 +51,10 @@ function App() {
 
             <section id="projects">
                 <Projects darkMode={darkMode}/>
+            </section>
+
+            <section id="gamejams">
+                <Gamejams darkMode={darkMode}/>
             </section>
 
             <Footer/>

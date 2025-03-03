@@ -21,28 +21,30 @@ const ProjectCard = ({ src, title, subtitle, text, list, githubLink, websiteLink
                         </div>
                     ))}
                 </div>
-                
-                {githubLink && (
-                    <a
-                        href={githubLink}
-                        className="github-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View on GitHub
-                    </a>
-                )}
 
-                {websiteLink && (
-                    <a
-                        href={websiteLink}
-                        className="github-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                <div className="link-container">
+                    {githubLink && (
+                        <a
+                            href={githubLink}
+                            className="github-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                        Visit Website
-                    </a>
-                )}
+                            View on GitHub
+                        </a>
+                    )}
+
+                    {websiteLink && (
+                        <a
+                            href={websiteLink}
+                            className="github-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Visit Website
+                        </a>
+                    )}
+                </div>
 
                 <button className="dropdown-button" onClick={toggleDropdown}>
                     {isOpen ? "Hide ▲" : " Read More ▼"}

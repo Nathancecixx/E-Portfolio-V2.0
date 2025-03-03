@@ -1,0 +1,10 @@
+.jam-section{
+    background-color: var(--background-color-accent);
+    padding: 100px;
+}
+
+.jam-title{
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}

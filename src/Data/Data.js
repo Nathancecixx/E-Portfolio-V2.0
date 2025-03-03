@@ -9,6 +9,8 @@ import Notify_Demo from "../Resources/Images/Notify_Demo.PNG"
 import UFC_Demo from "../Resources/Images/UFC_Demo.png"
 import Recipe_Demo from "../Resources/Images/Recipe_Demo.png"
 import LilWiz_Demo from "../Resources/Images/LilWizDemo.png"
+import BoxPong_Demo from "../Resources/Images/BoxPong_Demo.png"
+import OpenMind_Demo from "../Resources/Images/OneMind_Demo.png"
 import DriveAware from "../Resources/Images/DriveAware_Demo.png"
 
 
@@ -78,17 +80,6 @@ export const projects = [
     },
     {
         id: "4",
-        title: "Little Wizard",
-        subtitle: "VARLab GameJam fall 2024",
-        description:
-            "In my second year at Conestoga College, I joined six classmates for an intensive four-day game jam hosted by the college's Virtual and Augmented Reality Lab (VARLab) during study week. As the only team member with prior experience in Godot and GDScript, I took the lead in introducing these tools, and thanks to my teammates' eagerness to learn, we quickly found our rhythm. Together, we overcame the challenge and crafted a project we’re genuinely proud of.",
-        image: LilWiz_Demo,
-        github_link: "",
-        website_link: "https://nathanceci.itch.io/little-wizard",
-        techStack: ['Godot', 'GdScript', 'Asprite']
-    },
-    {
-        id: "5",
         title: "Encrypterizer",
         subtitle: "Basic CLI file encryption",
         description:
@@ -99,7 +90,22 @@ export const projects = [
         techStack: ['C', 'C++', 'Github']
     },
     {
-        id: "6",
+        id: "5",
+        title: "Open Mind",
+        subtitle: "ConnHacks 2025 Hackathon Submission",
+        description:
+            "",
+        image: OpenMind_Demo,
+        github_link: "https://github.com/nathancecixx/OpenMind",
+        website_link: "https://conhacks.ca/",
+        techStack: ['C', 'C++', 'RayLib']
+    },
+];
+
+
+export const gamejams = [
+    {
+        id: "1",
         title: "BitNByte",
         subtitle: "VARLab GameJam Winter 2024",
         description:
@@ -108,5 +114,27 @@ export const projects = [
         github_link: "",
         website_link: "https://gareth-simplestudios.itch.io/bit-and-byte",
         techStack: ['Godot', 'GDScript', 'C#']
+    },
+    {
+        id: "2",
+        title: "Little Wizard",
+        subtitle: "VARLab GameJam fall 2024",
+        description:
+            "In my second year at Conestoga College, I joined six classmates for an intensive four-day game jam hosted by the college's Virtual and Augmented Reality Lab (VARLab) during study week. As the only team member with prior experience in Godot and GDScript, I took the lead in introducing these tools, and thanks to my teammates' eagerness to learn, we quickly found our rhythm. Together, we overcame the challenge and crafted a project we’re genuinely proud of.",
+        image: LilWiz_Demo,
+        github_link: "",
+        website_link: "https://nathanceci.itch.io/little-wizard",
+        techStack: ['Godot', 'GdScript', 'Asprite']
+    },
+    {
+        id: "3",
+        title: "PingPong Boxing (Virtual Reality Game)",
+        subtitle: "VARLab GameJam winter 2025",
+        description:
+            "In my second year at Conestoga College, I joined six classmates for an intensive four-day game jam hosted by the college's Virtual and Augmented Reality Lab (VARLab) during study week. As the only team member with prior experience in Godot and GDScript, I took the lead in introducing these tools, and thanks to my teammates' eagerness to learn, we quickly found our rhythm. Together, we overcame the challenge and crafted a project we’re genuinely proud of.",
+        image: BoxPong_Demo,
+        github_link: "",
+        website_link: "",
+        techStack: ['Unity', 'C#', 'Blender']
     },
 ];
