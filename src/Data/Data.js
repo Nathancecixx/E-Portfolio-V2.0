@@ -17,21 +17,21 @@ import DriveAware from "../Resources/Images/DriveAware_Demo.png"
 export const skills = [
     {
         id: "1",
-        title: "Object Oriented Programming (OOP)",
-        subtitle: "MERN Stack",
+        title: "Object-Oriented Programming (OOP)",
+        subtitle: "",
         description:
-            "One of the best data I have in my arsenal is my familiarity with the Object Oriented approach to programming. Right from the jump I learned to program with these concepts as in grade 10 my first real language was java. Over the years I have increased my familiarity with not only java, but the OOP concept itself with other languages such as C++, and C#",
+            "From the very beginning of my programming journey, I have built a strong foundation in Object-Oriented Programming (OOP). My first language was Java, which introduced me to core OOP principles such as encapsulation, inheritance, polymorphism, and abstraction. Over the years, I have expanded my expertise by applying these concepts in C++, and C#, strengthening my ability to design scalable, maintainable, and modular software solutions.",
         image: OOP_Logo,
-        techStack: ['C++', 'Java']
+        techStack: ['C++', 'Java', "Python", "C#"]
     },
     {
         id: "2",
-        title: "Data Structures and Algorithms",
-        subtitle: "React and Python",
+        title: "Networking Fundamentals",
+        subtitle: "",
         description:
-            "I was introduced to data structures and algorithms during my first year of college. Since then I have researched and implemented plenty of different algorithms from basic sorting, to Huffman's Encoding for file compression.",
+            "I have hands-on experience in network design, configuration, and troubleshooting. My work includes subnetting for optimized IP allocation, configuring routers and switches, and implementing secure network architectures. I have also worked with firewalls, VPN's, and proxies to enhance security and efficiency in network environments.",
         image: DSA,
-        techStack: ['C', 'C++', "Python"]
+        techStack: ['C', 'C++', "TCP/IP", "UDP/IP", "OSI Stack"]
     },
     {
         id: "3",
@@ -40,7 +40,7 @@ export const skills = [
         description:
             "During the time ive been in school I have had the opportunity to experience plenty of group work through projects. I worked with range of people on a wide variety of problems in C ranging from triangle and different shape classifiers, basic file encryption software, or even an implementation of the machine learning K Nearest Neighbors algorithm (K-NN). Each of these ventures where vastly successful being great opportunities to learn.",
         image: Handshake,
-        techStack: ['C', 'C++', "Machine Learning"]
+        techStack: ['Github', 'Azure', "Teams", "Sprint Methodology"]
     },
 ];
 
@@ -128,10 +128,10 @@ export const gamejams = [
     },
     {
         id: "3",
-        title: "PingPong Boxing (Virtual Reality Game)",
+        title: "PingPong Boxing (VR Game)",
         subtitle: "VARLab GameJam winter 2025",
         description:
-            "In my second year at Conestoga College, I joined six classmates for an intensive four-day game jam hosted by the college's Virtual and Augmented Reality Lab (VARLab) during study week. As the only team member with prior experience in Godot and GDScript, I took the lead in introducing these tools, and thanks to my teammates' eagerness to learn, we quickly found our rhythm. Together, we overcame the challenge and crafted a project we’re genuinely proud of.",
+            "",
         image: BoxPong_Demo,
         github_link: "",
         website_link: "",

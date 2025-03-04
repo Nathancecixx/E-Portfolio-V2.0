@@ -9,9 +9,9 @@ const ProjectCard = ({ src, title, subtitle, text, list, githubLink, websiteLink
     };
 
     return (
-        <div className="project-card">
-            <img className="project-card-image" src={src} alt={title} />
-            <div className="project-card-text">
+        <div className="project-card" data-aos="fade-right">
+            <img className="project-card-image" src={src} alt={title}/>
+            <div className="project-card-text" data-aos="fade-left">
                 <h1 className="project-title">{title}</h1>
                 <p1 className="project-subtitle">{subtitle}</p1>
                 <div className="project-tech-list">
