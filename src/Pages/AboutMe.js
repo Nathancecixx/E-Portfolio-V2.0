@@ -72,13 +72,15 @@ const AboutMe = ({ darkMode }) => {
                 {/* BULLET POINTS FOR QUICK SCANNING */}
 
                 {/* CTA BUTTON */}
-                <button
+                <a
+                    href="mailto:Nceci6042@conestogac.on.ca"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="cta-button"
-                    onClick={() => window.open("mailto:Nceci6042@conestogac.on.ca", "_blank")}
                     data-aos="fade-up"
                 >
                     Get In Touch
-                </button>
+                </a>
             </div>
 
             {/* TECHNOLOGIES SECTION */}
