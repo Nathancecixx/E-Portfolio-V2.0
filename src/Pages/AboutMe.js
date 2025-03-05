@@ -26,12 +26,12 @@ import java_logo_dark from "../Resources/Icons/Java_Logo_Dark.png";
 
 // Mapping object for logos
 const logos = {
-    c: { light: c_logo_light, dark: c_logo_dark, level: "Intermediate" },
-    cpp: { light: cpp_logo_light, dark: cpp_logo_dark, level: "Intermediate" },
-    python: { light: py_logo_light, dark: py_logo_dark, level: "Intermediate" },
-    ubuntu: { light: ubuntu_logo_light, dark: ubuntu_logo_dark, level: "Comfortable" },
-    java: { light: java_logo_light, dark: java_logo_dark, level: "Beginner" },
-    github: { light: github_logo_light, dark: github_logo_dark, level: "Expert" },
+    c: { light: c_logo_light, dark: c_logo_dark, level: "Encrypterizer", link: "https://github.com/Nathancecixx/Encrypterizer" },
+    cpp: { light: cpp_logo_light, dark: cpp_logo_dark, level: "OpenMind", link: "https://github.com/Nathancecixx/OpenMind" },
+    python: { light: py_logo_light, dark: py_logo_dark, level: "DriveAware", link: "https://github.com/Nathancecixx/Group5F24Backend" },
+    ubuntu: { light: ubuntu_logo_light, dark: ubuntu_logo_dark, level: "Comfortable", link: "https://ubuntu.com/" },
+    java: { light: java_logo_light, dark: java_logo_dark, level: "Subject-Observer", link: "https://github.com/Nathancecixx/Subject-Observer-Java"},
+    github: { light: github_logo_light, dark: github_logo_dark, level: "Expert" , link: "https://github.com/Nathancecixx"},
 };
 
 const AboutMe = ({ darkMode }) => {
@@ -93,8 +93,9 @@ const AboutMe = ({ darkMode }) => {
                         <div
                             className="tech-card"
                             data-aos="zoom-in"
-                            data-aos-delay={index * 100} // AOS delay instead of inline style
-                            title={`Proficiency: ${logos[tech].level}`}
+                            data-aos-delay={index * 100}
+                            title={`${logos[tech].level}`}
+                            onClick={() => window.open(logos[tech].link, '_blank')}
                         >
                             <img
                                 className="tech-logo"
