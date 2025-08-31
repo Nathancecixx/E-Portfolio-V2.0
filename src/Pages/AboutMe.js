@@ -1,8 +1,7 @@
-import React from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./AboutMe.css";
-import useTheme from "../Components/Hooks/ThemeHook";
 
 // Light/Dark About Me Images
 import AboutMe_Icon_Light from "../Resources/Icons/AboutMe_Icon_Light.png";
@@ -26,94 +25,90 @@ import java_logo_dark from "../Resources/Icons/Java_Logo_Dark.png";
 
 // Mapping object for logos
 const logos = {
-    c: { light: c_logo_light, dark: c_logo_dark, level: "Encrypterizer", link: "https://github.com/Nathancecixx/Encrypterizer" },
-    cpp: { light: cpp_logo_light, dark: cpp_logo_dark, level: "OpenMind", link: "https://github.com/Nathancecixx/OpenMind" },
-    python: { light: py_logo_light, dark: py_logo_dark, level: "DriveAware", link: "https://github.com/Nathancecixx/Group5F24Backend" },
-    ubuntu: { light: ubuntu_logo_light, dark: ubuntu_logo_dark, level: "Comfortable", link: "https://ubuntu.com/" },
-    java: { light: java_logo_light, dark: java_logo_dark, level: "Subject-Observer", link: "https://github.com/Nathancecixx/Subject-Observer-Java"},
-    github: { light: github_logo_light, dark: github_logo_dark, level: "Expert" , link: "https://github.com/Nathancecixx"},
+    c:      { light: c_logo_light,      dark: c_logo_dark,      level: "Encrypterizer",     link: "https://github.com/Nathancecixx/Encrypterizer" },
+    cpp:    { light: cpp_logo_light,    dark: cpp_logo_dark,    level: "OpenMind",          link: "https://github.com/Nathancecixx/OpenMind" },
+    python: { light: py_logo_light,     dark: py_logo_dark,     level: "DriveAware",        link: "https://github.com/Nathancecixx/Group5F24Backend" },
+    java:   { light: java_logo_light,   dark: java_logo_dark,   level: "Subject-Observer",  link: "https://github.com/Nathancecixx/Subject-Observer-Java" },
+    github: { light: github_logo_light, dark: github_logo_dark, level: "Expert",            link: "https://github.com/Nathancecixx" },
+    ubuntu: { light: ubuntu_logo_light, dark: ubuntu_logo_dark, level: "Comfortable",       link: "https://ubuntu.com/" },
 };
 
 const AboutMe = ({ darkMode }) => {
-    React.useEffect(() => {
-        AOS.init({ duration: 1000 });
+    useEffect(() => {
+        AOS.init({ duration: 700, once: true, easing: "ease-out-cubic" });
     }, []);
 
     return (
-        <div className="about-me-section">
-            <div className="paragraph-section" data-aos="fade-up">
-                <h1 className="about-me-title">About Me</h1>
-                {darkMode ? (
-                    <img
-                        className="paragraph-image"
-                        src={AboutMe_Icon_Dark}
-                        alt={"Coding Student Logo"}
-                        data-aos="fade-left"
-                    />
-                ) : (
-                    <img
-                        className="paragraph-image"
-                        src={AboutMe_Icon_Light}
-                        alt={"Coding Student Logo"}
-                        data-aos="fade-right"
-                    />
-                )}
-
-                {/* INTRO TEXT */}
-                <div className="paragraph-text" data-aos="fade-up">
-                    <ul className="about-me-bullets" data-aos="fade-up">
-                        <li>Passionate about technology and problem-solving</li>
-                        <li>Proficient in C, C++, Python, and more</li>
-                        <li>Hands-on experience with GitHub and Linux environments</li>
-                        <li>Constantly learning new frameworks and libraries</li>
-                    </ul>
-                </div>
-
-                {/* BULLET POINTS FOR QUICK SCANNING */}
-
-                {/* CTA BUTTON */}
-                <a
-                    href="mailto:Nceci6042@conestogac.on.ca"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-button"
-                    data-aos="fade-up"
-                >
-                    Get In Touch
-                </a>
+        <section id="about-me" className="about-me-section" aria-labelledby="about-title">
+            {/* soft aurora backdrop */}
+            <div className="about-aurora" aria-hidden="true">
+                <span />
+                <span />
             </div>
 
-            {/* TECHNOLOGIES SECTION */}
-            <h1 className="tech-title" data-aos="fade-up">
-                My Technologies
-            </h1>
-            <div className="tech-section">
-                {Object.keys(logos).map((tech, index) => (
-                    <div className="card-section" key={tech}>
-                        <div
-                            className="tech-card"
+            <div className="about-container">
+                <h1 id="about-title" className="about-me-title" data-aos="fade-up">
+                    About <span className="grad-text">Me</span>
+                </h1>
+
+                <div className="about-grid">
+                    <div className="about-visual" data-aos="fade-right">
+                        <img
+                            className="about-image"
+                            src={darkMode ? AboutMe_Icon_Dark : AboutMe_Icon_Light}
+                            alt="Developer avatar"
+                            draggable="false"
+                        />
+                    </div>
+
+                    <div className="about-card" data-aos="fade-left">
+                        <ul className="about-me-bullets">
+                            <li>Passionate about technology and problem-solving.</li>
+                            <li>Proficient in C, C++, Python, Java & more.</li>
+                            <li>Hands-on with GitHub and Linux environments.</li>
+                            <li>Constantly learning modern frameworks & libraries.</li>
+                        </ul>
+
+                        {/* In-page anchor; no new tab so mobile sizing stays consistent */}
+                        <a
+                            href="#contact"
+                            className="btn btn--primary about-cta"
                             data-aos="zoom-in"
-                            data-aos-delay={index * 100}
-                            title={`${logos[tech].level}`}
-                            onClick={() => window.open(logos[tech].link, '_blank')}
+                            data-aos-delay="100"
                         >
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <h2 className="tech-title" data-aos="fade-up">My Technologies</h2>
+
+                <div className="tech-grid">
+                    {Object.keys(logos).map((tech, i) => (
+                        <a
+                            key={tech}
+                            href={logos[tech].link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="tech-card"
+                            title={logos[tech].level}
+                            data-aos="zoom-in"
+                            data-aos-delay={80 + i * 80}
+                            aria-label={`${tech} – ${logos[tech].level}`}
+                        >
+                            <span className="tech-border" aria-hidden="true" />
                             <img
                                 className="tech-logo"
                                 src={darkMode ? logos[tech].dark : logos[tech].light}
                                 alt={`${tech} logo`}
+                                draggable="false"
                             />
-                        </div>
-                        <div
-                            className="tech-name"
-                            data-aos="zoom-in"
-                            data-aos-delay={index * 100}
-                        >
-                            <h5 className="name">{tech}</h5>
-                        </div>
-                    </div>
-                ))}
-        </div>
-        </div>
+                            <span className="tech-chip">{tech}</span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 };
 

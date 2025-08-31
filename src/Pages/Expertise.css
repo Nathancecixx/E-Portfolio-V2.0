@@ -1,22 +1,121 @@
 .expertise-section {
-    background-color: var(--background-color);
-    padding-top: 100px;
+    position: relative;
+    background: var(--background-color);
+    padding: clamp(72px, 8vw, 120px) 0 96px;
+    overflow: hidden;
+    contain: paint;
 }
 
+.expertise-bg {
+    position: absolute;
+    inset: -10% -20%;
+    background:
+            radial-gradient(40% 40% at 15% 20%, color-mix(in oklab, var(--accent-color-one) 35%, transparent), transparent 60%),
+            radial-gradient(35% 35% at 85% 15%, color-mix(in oklab, var(--accent-color-two) 35%, transparent), transparent 60%),
+            radial-gradient(30% 40% at 60% 90%, color-mix(in oklab, var(--highlight-color-two) 25%, transparent), transparent 65%);
+    filter: blur(40px) saturate(110%);
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.expertise-inner {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
 
 .expertise-title {
-    font-size: 40px;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(28px, 2.4vw + 12px, 44px);
+    line-height: 1.1;
+    letter-spacing: 0.5px;
     color: var(--text-color);
+    margin: 0 auto 28px;
 }
 
-
-.card-container {
-    padding: 50px;
+.grad {
+    background: linear-gradient(90deg, var(--accent-color-one), var(--accent-color-two));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
 }
 
-.card-wrapper {
-    border-top: 2px solid var(--highlight-color-two);
+.sparkle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:
+            radial-gradient(circle, #fff 0 25%, transparent 26% 100%),
+            conic-gradient(from 0deg, var(--accent-color-one), var(--accent-color-two), var(--highlight-color-two), var(--accent-color-one));
+    filter: blur(0.4px) drop-shadow(0 0 8px var(--accent-color-two));
+    animation: spin 3.5s linear infinite;
+    opacity: 0.9;
 }
 
+@keyframes spin { to { transform: rotate(1turn); } }
 
+/* === Stack the cards in a single vertical column === */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;         /* one column only */
+    gap: clamp(16px, 2.5vw, 28px);
+    margin-top: clamp(18px, 1.5vw, 28px);
+}
+
+/* Card container (no transform here to avoid backdrop-filter bug) */
+.exp-card {
+    position: relative;
+    border-radius: 16px;
+    outline: none;
+    isolation: isolate;
+}
+
+/* Inner gets the hover/focus lift and gradient border */
+.exp-card__inner {
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    background:
+            linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) padding-box,
+            conic-gradient(from 180deg at 50% 50%,
+            var(--accent-color-one),
+            var(--accent-color-two),
+            var(--highlight-color-two),
+            var(--accent-color-one)) border-box;
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    padding: clamp(18px, 2.2vw, 26px);
+
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.exp-card:hover .exp-card__inner,
+.exp-card:focus-visible .exp-card__inner {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,.45);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .sparkle { animation: none; }
+    .exp-card__inner { transition: none; transform: none !important; box-shadow: none !important; }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .exp-card__inner {
+        background:
+                linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)),
+                conic-gradient(from 180deg at 50% 50%,
+                var(--accent-color-one),
+                var(--accent-color-two),
+                var(--highlight-color-two),
+                var(--accent-color-one));
+        background-clip: padding-box, border-box;
+    }
+}

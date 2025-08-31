@@ -1,12 +1,22 @@
-import React from 'react';
-import "./Footer.css"
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
-    return (
-        <div className="footer-section">
-            <span className="footer-text">Loosely designed in <span className="text-highlight">AdobeXD</span> and written using the <span className="text-highlight">Clion IDE</span> by Nathan Ceci. Built using the <span className="text-highlight">Javascript</span> framework <span className="text-highlight">React</span> paired with <span className="text-highlight">Vercel</span> for deployment.</span>
+    const year = new Date().getFullYear();
 
-        </div>
+    return (
+        <footer className="footer" aria-label="Site footer">
+            <div className="footer-inner">
+                <p className="footer-text">
+                    Loosely designed in <span className="text-highlight">Adobe XD</span> and
+                    written using the <span className="text-highlight">CLion IDE</span> by{" "}
+                    <span className="name-fx">Nathan Ceci</span>. Built with{" "}
+                    <span className="text-highlight">JavaScript</span> +
+                    <span className="text-highlight"> React</span>, deployed on{" "}
+                    <span className="text-highlight">Vercel</span>.
+                </p>
+            </div>
+        </footer>
     );
 };
 

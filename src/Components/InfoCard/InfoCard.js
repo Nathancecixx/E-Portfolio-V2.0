@@ -1,22 +1,32 @@
-import React from 'react';
-import './InfoCard.css';
+import React from "react";
+import "./InfoCard.css";
 
-const InfoCard = ({ src, title, text, list }) => {
-
+const InfoCard = ({ src, title, text, list = [] }) => {
     return (
         <div className="card">
-            <img className="card-image" src={src} alt={title} />
-            <div className="card-text">
-                <h1 className="title">{title}</h1>
-                <p className="paragraph">{text}</p>
-                <div className="tech-list">
-                    {list.map((item, index) => (
-                        <div key={index} className="tech-item">
-                            {item}
-                        </div>
-                    ))}
+            {src ? (
+                <img className="card-image" src={src} alt={title} loading="lazy" />
+            ) : null}
 
-                </div>
+            <div className="card-text">
+                {title && <h3 className="title">{title}</h3>}
+                {text && <p className="paragraph">{text}</p>}
+
+                {Array.isArray(list) && list.length > 0 && (
+                    <div className="tech-list" role="list">
+                        {list.map((item, i) => (
+                            <div
+                                key={`${title || "tech"}-${i}`}
+                                className="tech-item"
+                                role="listitem"
+                                aria-label={String(item)}
+                                tabIndex={0}
+                            >
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

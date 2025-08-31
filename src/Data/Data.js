@@ -57,6 +57,28 @@ export const projects = [
         techStack: ['Javascript', 'React Native', 'Python', 'Flask', 'SQLite']
     },
     {
+        id: "5",
+        title: "Open Mind",
+        subtitle: "ConnHacks 2025 Hackathon Submission",
+        description:
+            "",
+        image: OpenMind_Demo,
+        github_link: "https://github.com/nathancecixx/OpenMind",
+        website_link: "https://conhacks.ca/",
+        techStack: ['C', 'C++', 'RayLib']
+    },
+    {
+        id: "4",
+        title: "Encrypterizer",
+        subtitle: "Basic CLI file encryption",
+        description:
+            "During my first year in college, I collaborated with three teammates on a challenging project to create a Command-Line Interface (CLI) application as part of a Team-Based Software Development course. We followed the Software Development Life Cycle (SDLC) from start to finish. Our process began with planning high-level modules, which we then methodically implemented using Test-Driven Development (TDD). This approach allowed us to build the application iteratively, ensuring that each component was thoroughly tested and reliable. We concluded the project with a comprehensive set of robust unit tests, reflecting our commitment to quality and precision throughout the development process.",
+        image: Encrypterizer_Demo,
+        github_link: "https://github.com/Nathancecixx/Encrypterizer",
+        website_link: "",
+        techStack: ['C', 'C++', 'Github']
+    },
+    {
         id: "2",
         title: "Elo Engineer",
         subtitle: "Discord bot for gaming servers",
@@ -77,28 +99,6 @@ export const projects = [
         github_link: "",
         website_link: "https://ufcstats.ca",
         techStack: ['Javascript', 'React', 'Material UI']
-    },
-    {
-        id: "4",
-        title: "Encrypterizer",
-        subtitle: "Basic CLI file encryption",
-        description:
-            "During my first year in college, I collaborated with three teammates on a challenging project to create a Command-Line Interface (CLI) application as part of a Team-Based Software Development course. We followed the Software Development Life Cycle (SDLC) from start to finish. Our process began with planning high-level modules, which we then methodically implemented using Test-Driven Development (TDD). This approach allowed us to build the application iteratively, ensuring that each component was thoroughly tested and reliable. We concluded the project with a comprehensive set of robust unit tests, reflecting our commitment to quality and precision throughout the development process.",
-        image: Encrypterizer_Demo,
-        github_link: "https://github.com/Nathancecixx/Encrypterizer",
-        website_link: "",
-        techStack: ['C', 'C++', 'Github']
-    },
-    {
-        id: "5",
-        title: "Open Mind",
-        subtitle: "ConnHacks 2025 Hackathon Submission",
-        description:
-            "",
-        image: OpenMind_Demo,
-        github_link: "https://github.com/nathancecixx/OpenMind",
-        website_link: "https://conhacks.ca/",
-        techStack: ['C', 'C++', 'RayLib']
     },
 ];
 

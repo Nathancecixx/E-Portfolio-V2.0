@@ -1,0 +1,200 @@
+/******************************************************
+ * Timeline Container
+ ******************************************************/
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 0 50px 0; /* extra bottom padding for spacing */
+}
+
+/* The vertical line running down the middle */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/******************************************************
+ * Timeline Item
+ ******************************************************/
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    /* for smoother fade in on slower devices, add a small delay
+       or vary the animation timing here if desired */
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/******************************************************
+ * The Content Box
+ ******************************************************/
+.timeline-item .content {
+    position: relative;
+    background: var(--background-color); /* or your desired color */
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item .content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/******************************************************
+ * Arrow Indicators
+ ******************************************************/
+.timeline-item.left .content::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--background-color);
+}
+
+.timeline-item.right .content::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--background-color) transparent transparent;
+}
+
+/******************************************************
+ * Circle Marker
+ ******************************************************/
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color-one);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left::before {
+    right: -10px;
+}
+
+.timeline-item.right::before {
+    left: -10px;
+}
+
+/******************************************************
+ * Displaying the Image
+ ******************************************************/
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover; /* helps maintain aspect ratio if you have various image sizes */
+}
+
+/******************************************************
+ * Tech Stack
+ ******************************************************/
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.project-tech-item {
+    background-color: var(--highlight-color-two);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/******************************************************
+ * Links
+ ******************************************************/
+.links {
+    margin-top: 10px;
+}
+
+.links a {
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--accent-color-one);
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--text-color); /* or any complementary color */
+}
+
+/******************************************************
+ * Fade-In Animation
+ ******************************************************/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/******************************************************
+ * Responsive
+ ******************************************************/
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        text-align: left;
+    }
+
+    /* Hide the arrow pointers on mobile (optional) */
+    .timeline-item.left .content::after,
+    .timeline-item.right .content::after {
+        display: none;
+    }
+
+    .timeline-item::before {
+        left: 20px;
+    }
+}

@@ -1,83 +1,115 @@
-import React, {useEffect, useState} from 'react';
-import './Navbar.css';
-import Github_light from "../../Resources/Icons/GithubLogo.png"
-import Github_Dark from "../../Resources/Icons/GithubLogo(Dark).png"
-import Linkedin_Light from "../../Resources/Icons/LinkedInLogo.png"
-import Linkedin_Dark from "../../Resources/Icons/LinkedInLogo(Dark).png"
+import React, { useEffect, useState } from "react";
+import "./Navbar.css";
+import GithubLight from "../../Resources/Icons/GithubLogo.png";
+import GithubDark from "../../Resources/Icons/GithubLogo(Dark).png";
+import LinkedinLight from "../../Resources/Icons/LinkedInLogo.png";
+import LinkedinDark from "../../Resources/Icons/LinkedInLogo(Dark).png";
 
-const Navbar = ({ isHome, darkMode, toggleDarkMode}) => {
+const Navbar = ({ isHome, darkMode, toggleDarkMode }) => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    const [menuOpen, setMenuState] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuState(!menuOpen)
-    }
+    const toggleMenu = () => setMenuOpen((s) => !s);
 
     useEffect(() => {
-        console.log({isHome})
-        if(!isHome) {
-            setMenuState(false);
+        if (!isHome) {
+            setMenuOpen(false);
+            setScrolled(true);
+            return;
         }
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, [isHome]);
 
+    useEffect(() => {
+        if (!isHome) setMenuOpen(false);
+    }, [isHome]);
+
+    const closeMenu = () => setMenuOpen(false);
+
+    const SocialIcon = ({ href, light, dark, alt }) => (
+        <a href={href} target="_blank" rel="noreferrer" aria-label={alt} className="social-link" onClick={closeMenu}>
+            <img
+                src={darkMode ? dark : light}
+                alt={alt}
+                className="social-icon"
+                draggable="false"
+            />
+        </a>
+    );
+
     return (
+        <header
+            className={[
+                "navbar",
+                isHome ? "home" : "not-home",
+                scrolled ? "scrolled" : "",
+                menuOpen ? "open" : "",
+            ].join(" ")}
+            role="banner"
+        >
+            <div className="nav-shell">
+                <div className="navbar-left">
+                    <a href="/" className="brand Home-Link" onClick={closeMenu} aria-label="Go to homepage">
+                        <span className="brand__text">Nathan Ceci</span>
+                        <span className="brand__dot">.</span>
+                    </a>
+                </div>
 
-        <nav className={`navbar ${isHome ? 'home' : 'not-home'}`}>
+                <nav className="navbar-center" aria-label="Primary">
+                    <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+                        <li><a href="#about-me" onClick={closeMenu} data-underline="true">About</a></li>
+                        <li><a href="#expertise" onClick={closeMenu} data-underline="true">Expertise</a></li>
+                        <li><a href="#projects" onClick={closeMenu} data-underline="true">Projects</a></li>
+                        <li className="socials">
+                            <SocialIcon
+                                href="https://github.com/Nathancecixx"
+                                light={GithubLight}
+                                dark={GithubDark}
+                                alt="GitHub"
+                            />
+                            <SocialIcon
+                                href="https://www.linkedin.com/in/nathan-ceci"
+                                light={LinkedinLight}
+                                dark={LinkedinDark}
+                                alt="LinkedIn"
+                            />
+                        </li>
+                    </ul>
+                </nav>
 
-            <div className="navbar-left">
-                <a href="/" className="Home-Link">
-                    Nathan Ceci.
-                </a>
-            </div>
+                <div className="navbar-right">
+                    {/* Theme toggle */}
+                    <button
+                        className={`theme-toggle ${darkMode ? "dark" : "light"}`}
+                        onClick={toggleDarkMode}
+                        role="switch"
+                        aria-checked={darkMode}
+                        aria-label="Toggle theme"
+                    >
+                        <span className="toggle-track" />
+                        <span className="toggle-thumb" />
+                        <span className="toggle-icon sun" aria-hidden="true">☀</span>
+                        <span className="toggle-icon moon" aria-hidden="true">☾</span>
+                    </button>
 
-
-            <div className="navbar-center">
-                <div className={`theme-toggle ${darkMode ? 'dark' : 'light'}`} onClick={toggleDarkMode}>
-                    <div className="toggle-thumb"></div>
+                    {/* Mobile menu toggle */}
+                    <button
+                        className={`menu-toggle ${menuOpen ? "active" : ""}`}
+                        onClick={toggleMenu}
+                        aria-expanded={menuOpen}
+                        aria-controls="primary-navigation"
+                        aria-label="Toggle menu"
+                    >
+                        <span />
+                        <span />
+                        <span />
+                    </button>
                 </div>
             </div>
-
-
-            <div className="navbar-right">
-
-                <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                    <li>
-                        <a href="#about-me">About</a>
-                    </li>
-                    <li>
-                        <a href="#expertise">Expertise</a>
-                    </li>
-                    <li>
-                        <a href="#projects">Projects</a>
-                    </li>
-                    <li>
-                        <a href={"https://github.com/Nathancecixx"}>
-                            {darkMode === true &&
-                                <img src={Github_Dark} alt={"Github Logo"} className={`Github-Logo ${isHome ? 'home' : 'not-home'}`}/>
-                            }
-                            {darkMode === false &&
-                                <img src={Github_light} alt={"Github Logo"} className={`Github-Logo ${isHome ? 'home' : 'not-home'}`}/>
-                            }
-                        </a>
-
-                        <a href={"https://www.linkedin.com/in/nathan-ceci"}>
-                            {darkMode === true &&
-                                <img src={Linkedin_Dark} alt={"Linkedin Logo"} className={`Linkedin-Logo ${isHome ? 'home' : 'not-home'}`}/>
-                            }
-                            {darkMode === false &&
-                                <img src={Linkedin_Light} alt={"Linkedin Logo"} className={`Linkedin-Logo ${isHome ? 'home' : 'not-home'}`}/>
-                            }
-                        </a>
-                    </li>
-                </ul>
-
-                <button className="menu-toggle" onClick={toggleMenu}>
-                    ☰
-                </button>
-
-            </div>
-
-        </nav>
+        </header>
     );
 };
 

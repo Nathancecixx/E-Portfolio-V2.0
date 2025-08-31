@@ -1,41 +1,28 @@
+/* Parent container for shared background + mid sections */
+.mid-sections {
+    position: relative;
+    background: var(--background-color); /* base behind the animated blobs */
+    overflow: clip; /* contain the big blurred blobs */
+    z-index: 0;     /* background sits at 0, content at 1 */
+}
 
+/* Ensure content sits above the background */
+.mid-sections > section {
+    position: relative;
+    z-index: 1;
+}
 
+/* Make intermediate pages transparent so the shared background shows through */
+.mid-sections .about-section,
+.mid-sections .expertise-section,
+.mid-sections .projects-section,
+.mid-sections .jam-section {
+    background: transparent !important;
+}
 
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
-
-/*.App-logo {*/
-/*  height: 40vmin;*/
-/*  pointer-events: none;*/
-/*}*/
-
-/*@media (prefers-reduced-motion: no-preference) {*/
-/*  .App-logo {*/
-/*    animation: App-logo-spin infinite 20s linear;*/
-/*  }*/
-/*}*/
-
-/*.App-header {*/
-/*  background-color: #282c34;*/
-/*  min-height: 100vh;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  font-size: calc(10px + 2vmin);*/
-/*  color: white;*/
-/*}*/
-
-/*.App-link {*/
-/*  color: #61dafb;*/
-/*}*/
-
-/*@keyframes App-logo-spin {*/
-/*  from {*/
-/*    transform: rotate(0deg);*/
-/*  }*/
-/*  to {*/
-/*    transform: rotate(360deg);*/
-/*  }*/
-/*}*/
+/* Hide any per-page decorative BG layers to avoid double glows */
+.mid-sections .expertise-bg,
+.mid-sections .projects-bg,
+.mid-sections .jam-bg {
+    display: none !important;
+}

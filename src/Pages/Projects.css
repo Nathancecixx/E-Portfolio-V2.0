@@ -1,22 +1,72 @@
 .projects-section {
-    background-color: var(--background-color-accent);
-    padding: 100px;
+    position: relative;
+    background: var(--background-color); /* was var(--background-color-accent) */
+    padding: clamp(72px, 8vw, 120px) 0 100px;
+    overflow: hidden;
+    contain: paint;
+}
+
+
+.projects-bg {
+    position: absolute;
+    inset: -10% -20%;
+    background:
+            radial-gradient(40% 40% at 20% 20%, color-mix(in oklab, var(--accent-color-one) 35%, transparent), transparent 60%),
+            radial-gradient(35% 35% at 80% 15%, color-mix(in oklab, var(--accent-color-two) 35%, transparent), transparent 60%),
+            radial-gradient(30% 40% at 60% 90%, color-mix(in oklab, var(--highlight-color-two) 25%, transparent), transparent 65%);
+    filter: blur(40px) saturate(110%);
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.projects-inner {
+    width: min(1150px, 92%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .projects-title {
-    text-align: center;
-    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     color: var(--text-color);
+    margin: 0 auto 28px;
+    font-size: clamp(28px, 2.4vw + 12px, 44px);
+    line-height: 1.1;
+    letter-spacing: 0.5px;
 }
 
-.projects-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.grad {
+    background: linear-gradient(90deg, var(--accent-color-one), var(--accent-color-two));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
 }
 
-@media (max-width: 480px) {
-    .projects-section {
-        padding: 10px;
-    }
+.sparkle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:
+            radial-gradient(circle, #fff 0 25%, transparent 26% 100%),
+            conic-gradient(from 0deg, var(--accent-color-one), var(--accent-color-two), var(--highlight-color-two), var(--accent-color-one));
+    filter: blur(0.4px) drop-shadow(0 0 8px var(--accent-color-two));
+    animation: spin 3.5s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes spin { to { transform: rotate(1turn); } }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: clamp(16px, 2.6vw, 28px);
+    margin-top: clamp(18px, 1.6vw, 28px);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .sparkle { animation: none; }
 }

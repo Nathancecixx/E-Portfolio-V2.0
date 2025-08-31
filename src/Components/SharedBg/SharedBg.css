@@ -1,0 +1,63 @@
+/* Container is positioned by .mid-sections in AppShell.css */
+.shared-bg {
+    position: absolute;
+    inset: -15% -20%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Two soft, animated radial blobs for a premium crypto vibe */
+.shared-bg::before,
+.shared-bg::after {
+    content: "";
+    position: absolute;
+    width: 120vmax;
+    height: 120vmax;
+    border-radius: 50%;
+    filter: blur(60px) saturate(120%);
+    opacity: 0.65;
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
+}
+
+/* Blob A */
+.shared-bg::before {
+    left: -20%;
+    top: -10%;
+    background:
+            radial-gradient(closest-side at 50% 50%,
+            color-mix(in oklab, var(--accent-color-one) 45%, transparent) 0%,
+            transparent 60%);
+    animation: blobFloatA 26s ease-in-out infinite alternate;
+}
+
+/* Blob B */
+.shared-bg::after {
+    right: -25%;
+    bottom: -15%;
+    background:
+            radial-gradient(closest-side at 50% 50%,
+            color-mix(in oklab, var(--accent-color-two) 45%, transparent) 0%,
+            transparent 60%);
+    animation: blobFloatB 32s ease-in-out infinite alternate;
+}
+
+/* Gentle motion */
+@keyframes blobFloatA {
+    0%   { transform: translate3d(-4%, 2%, 0) scale(1);   opacity: .58; }
+    50%  { transform: translate3d(6%, -3%, 0) scale(1.08); opacity: .72; }
+    100% { transform: translate3d(2%, 4%, 0) scale(1.03);  opacity: .65; }
+}
+
+@keyframes blobFloatB {
+    0%   { transform: translate3d(5%, -4%, 0) scale(1.02); opacity: .62; }
+    50%  { transform: translate3d(-6%, 4%, 0) scale(1.1);  opacity: .72; }
+    100% { transform: translate3d(-2%, -3%, 0) scale(1.04); opacity: .66; }
+}
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .shared-bg::before,
+    .shared-bg::after { animation: none; }
+}

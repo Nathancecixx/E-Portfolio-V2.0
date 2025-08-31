@@ -1,75 +1,206 @@
-.background {
-    background: var(--background-color);
-    height: 100vh; /* Ensure the background covers the full viewport height */
-    //display: flex;
-    //justify-content: center;
-    //align-items: center;
-    text-align: center;
+/* Uses your existing theme variables; includes safe fallbacks */
+:root {
+    /* These fallbacks won't override your globals; they only apply if missing */
+    --accent-color-two: #7a5fff;
+    --highlight-color-one: #6a4cff;
+    --highlight-color-two: #17d1ac;
 }
 
-.text-container {
-    padding-left: 50px;
-    padding-right: 50px;
+/* ===== Hero Layout ===== */
+.hero {
+    position: relative;
+    min-height: 100svh;
+    background:
+            radial-gradient(1200px 800px at 10% 10%, color-mix(in oklab, var(--background-color-accent), transparent 70%), transparent 70%),
+            radial-gradient(1000px 700px at 90% 20%, color-mix(in oklab, var(--accent-color-two), transparent 80%), transparent 70%),
+            var(--background-color);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: clip;
+    isolation: isolate;
+}
+
+.hero__inner {
+    width: min(1200px, 92vw);
+    text-align: center;
+    padding-inline: 1rem;
+    z-index: 2;
+}
+
+/* ===== Eyebrow ===== */
+.eyebrow {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-color);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    backdrop-filter: blur(8px) saturate(140%);
+}
+
+/* ===== Headline & Sub ===== */
+.headline {
+    margin: 0;
+    font-weight: 800;
+    line-height: 0.95;
+    font-size: clamp(2.8rem, 9vw, 6.5rem);
+    background: linear-gradient(90deg,
+    var(--accent-color-one) 0%,
+    var(--accent-color-two) 50%,
+    var(--highlight-color-two) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px color-mix(in oklab, var(--accent-color-two), transparent 70%);
+}
+
+.sparkle {
+    margin-left: 0.25ch;
+    font-size: 0.9em;
+    filter: drop-shadow(0 0 8px color-mix(in oklab, var(--highlight-color-two), transparent 60%));
+}
+
+.subheadline {
+    margin: 16px auto 28px;
+    max-width: 65ch;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    color: color-mix(in oklab, var(--text-color), #ffffff 8%);
+    opacity: 0.9;
+}
+
+/* ===== CTA Buttons (glassy) ===== */
+.cta {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.big-text {
-    font-size: 200px;
-    font-weight: bold;
-    background: linear-gradient(to right, var(--accent-color-one) 30%, var(--accent-color-two) 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.btn {
+    --_ring: rgba(255,255,255,0.14);
+    position: relative;
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 14px;
     text-decoration: none;
-    margin: 0; /* Remove default margin */
-}
-
-.little-text {
-    font-size: 50px; /* Adjust font size as needed */
-    margin: 0; /* Remove default margin */
-    /* Optionally, add some padding if needed */
-    padding-top: 10px; /* Adjust padding between the texts as needed */
-    color: var(--text-color); /* Set a color for the text */
-}
-
-.arrow {
+    font-weight: 600;
     color: var(--text-color);
-    font-size: 50px;
-    margin-top: 125px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px) saturate(150%);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 0 0 6px var(--_ring);
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--accent-color-one), var(--accent-color-two));
+    border-color: transparent;
+    color: white;
+}
+
+.btn--ghost {
+    background: rgba(255,255,255,0.04);
+}
+
+/* ===== Scroll Cue ===== */
+.scroll {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(12px, 6vh, 28px);
+    translate: -50% 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-color);
+    background: transparent;
+    border: 0;
     cursor: pointer;
+    z-index: 3;
+}
+
+.scroll__text {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.scroll__chev {
+    font-size: 28px;
     animation: bounce 2s infinite;
-    z-index: 1002;
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) }
+    40% { transform: translateY(-8px) }
+    60% { transform: translateY(-4px) }
 }
 
-@media (max-width: 768px) {
-    .big-text {
-        font-size: 100px;
-    }
+/* ===== Aurora Animation ===== */
+.aurora {
+    position: absolute;
+    inset: -20% -10% -10% -10%;
+    filter: blur(40px);
+    z-index: 1;
+    pointer-events: none;
+}
 
-    .little-text {
-        font-size: 25px;
-    }
+.aurora span {
+    position: absolute;
+    width: 45vmax;
+    height: 45vmax;
+    background:
+            conic-gradient(from 180deg at 50% 50%,
+            transparent 0 10%,
+            color-mix(in oklab, var(--highlight-color-one), transparent 30%) 15% 35%,
+            color-mix(in oklab, var(--accent-color-two), transparent 25%) 40% 60%,
+            color-mix(in oklab, var(--accent-color-one), transparent 35%) 65% 85%,
+            transparent 90% 100%);
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: float 18s linear infinite;
+}
+
+.aurora span:nth-child(1) { top: -10%; left: -10%; animation-duration: 22s; }
+.aurora span:nth-child(2) { bottom: -15%; right: -5%; animation-duration: 26s; }
+.aurora span:nth-child(3) { top: 20%; right: 20%; animation-duration: 20s; }
+
+@keyframes float {
+    from { transform: rotate(0deg) translate3d(0,0,0); }
+    to   { transform: rotate(360deg) translate3d(0,0,0); }
+}
+
+/* ===== Grid Overlay ===== */
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+            linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(70% 70% at 50% 30%, #000 55%, transparent 100%);
+    pointer-events: none;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+    .eyebrow { font-size: 0.75rem; }
+    .subheadline { max-width: 60ch; }
+    .btn { padding: 11px 16px; }
 }
 
 @media (max-width: 480px) {
-    .big-text {
-        font-size: 100px;
-    }
-
-    .little-text {
-        font-size: 25px;
-    }
+    .subheadline { margin: 12px auto 22px; }
 }

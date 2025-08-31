@@ -1,141 +1,221 @@
+/* Card container */
 .project-card {
-    width: 30%;
-    margin: 10px;
-    border: 1px solid var(--background-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    position: relative;
+    outline: none;
+    isolation: isolate;
+
+    /* single source of truth for radius */
+    --card-radius: 16px;
+    border-radius: var(--card-radius);
 }
 
-.project-card:hover {
-    box-shadow: 0 4px 8px var(--accent-color-one);
+/* ===== Reveal-once animation (CSS only, no AOS) ===== */
+@keyframes card-reveal {
+    from { opacity: 0; transform: translateY(16px) scale(0.985); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Keep transforms off the parent; animate the inner for best backdrop-filter behavior */
+.project-card .project-card__inner {
+    /* initial hidden state; hover transitions defined below still apply later */
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+}
+
+.project-card.is-visible .project-card__inner {
+    animation: card-reveal .6s cubic-bezier(.2,.8,.2,1) forwards;
+    /* stagger is provided inline via animation-delay */
+}
+
+/* ===== Glass card ===== */
+.project-card__inner {
+    position: relative;
+    border-radius: var(--card-radius);
+    border: 1px solid transparent;
+    background:
+            linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) padding-box,
+            conic-gradient(from 180deg at 50% 50%,
+            var(--accent-color-one),
+            var(--accent-color-two),
+            var(--highlight-color-two),
+            var(--accent-color-one)) border-box;
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    transition: transform .25s ease, box-shadow .25s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+    box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+/* Hover/focus lift */
+.project-card:hover .project-card__inner,
+.project-card:focus-visible .project-card__inner {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,.45);
+}
+
+/* Media (image) */
+.project-media {
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    overflow: hidden;
+
+    /* match the card’s top corners so the image clips perfectly */
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
 }
 
 .project-card-image {
+    display: block;
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #0b0b0b;
+
+    /* figure clips already, but keep consistent */
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
+/* Text block */
 .project-card-text {
-    padding: 15px;
-    color: var(--highlight-color-one);
+    padding: clamp(16px, 2vw, 22px);
+    color: var(--text-color);
 }
 
 .project-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    margin: 0 0 4px;
+    font-size: clamp(18px, 1.2vw + 12px, 22px);
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--text-color);
 }
 
 .project-subtitle {
-    font-size: 1rem;
-    color: var(--text-color);
+    margin: 0 0 10px;
+    font-size: clamp(13px, .5vw + 11px, 15px);
+    color: color-mix(in oklab, var(--text-color) 78%, transparent);
 }
 
+/* Tech chips */
 .project-tech-list {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-    padding-top: 10px;
+    gap: 8px 10px;
+    margin: 10px 0 12px;
 }
 
 .project-tech-item {
-    background-color: var(--highlight-color-two);
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9em;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: .2px;
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 2px 8px rgba(0,0,0,.25);
 }
 
-.dropdown-button {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+/* Link buttons */
+.link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 8px 0 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    will-change: transform;
     cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
 }
 
-.dropdown-button:hover {
-    color: var(--accent-color-two);
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.35);
+}
+
+.btn--primary {
+    background: linear-gradient(90deg, var(--accent-color-one), var(--accent-color-two));
+    color: var(--text-color);
+    border-color: rgba(255,255,255,.08);
+}
+
+.btn--ghost {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,.14);
+}
+
+/* Dropdown */
+.dropdown-button {
+    width: 100%;
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.dropdown-button:hover,
+.dropdown-button:focus-visible {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    box-shadow: 0 10px 22px rgba(0,0,0,.35);
+    transform: translateY(-2px);
+}
+
+/* Collapsible description with smooth height */
+.project-description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .3s ease, opacity .3s ease;
+    border-top: 1px solid transparent;
+    margin-top: 0;
+}
+
+.project-card.is-open .project-description {
+    max-height: 420px;  /* adjust if you have long text */
+    opacity: 1;
+    border-top-color: rgba(255,255,255,.12);
+    margin-top: 12px;
 }
 
 .project-paragraph {
+    margin: 10px 0 0;
     color: var(--text-color);
+    line-height: 1.65;
+    font-size: clamp(14px, .45vw + 12px, 16px);
 }
 
-.project-description {
-    margin-top: 15px;
-    border-top: 1px solid var(--text-color);
-    padding-top: 10px;
+/* Mobile tweaks */
+@media (max-width: 560px) {
+    .link-row { gap: 8px; }
+    .btn { width: 100%; }
 }
 
-.link-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.github-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.github-link:hover {
-    text-decoration: underline;
-    color: var(--accent-color-one);
-}
-
-
-
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
-    .project-card {
-        width: 45%; /* Two cards per row on tablets */
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .project-card .project-card__inner {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
-}
-
-@media (max-width: 768px) {
-    .project-card {
-        width: 100%; /* One card per row on mobile */
-        margin: 10px 0;
-    }
-
-    .project-card-text {
-        text-align: center;
-    }
-
-    .project-tech-list {
-        justify-content: center;
-    }
-
-    .project-tech-item {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-card-text {
-        padding: 10px;
-    }
-
-    .project-title {
-        font-size: 1.2em;
-    }
-
-    .dropdown-button {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .project-tech-item {
-        font-size: 10px;
-        padding: 3px 7px;
-    }
+    .project-card__inner { transition: none; box-shadow: none; }
+    .dropdown-button, .btn { transition: none; }
+    .project-description { transition: none; }
 }
