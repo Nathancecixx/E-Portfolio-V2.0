@@ -1,3 +1,18 @@
+/* src/Components/Navbar/Navbar.css */
+
+/* iOS text inflation & anchor offset for fixed header */
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 84px; /* avoids anchored content hiding behind the navbar */
+}
+
+/* Lock background scroll when mobile menu is open (iOS-safe) */
+body.nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 /* Fallbacks if not defined globally */
 :root {
     --accent-color-two: #7a5fff;
@@ -11,10 +26,12 @@
     position: fixed;
     inset: 0 0 auto 0;
     z-index: 1000;
-    /* transparent at top of home; becomes glassy when scrolled/not-home */
     background: transparent;
     pointer-events: none;
+    padding-top: env(safe-area-inset-top); /* iPhone notch */
+    -webkit-tap-highlight-color: transparent;
 }
+
 .navbar .nav-shell {
     pointer-events: auto;
     margin: 10px auto;
@@ -31,23 +48,28 @@
     /* Glass background + neon edge */
     background: var(--surface-glass);
     backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--nav-shadow);
 
-    /* subtle animated gradient border */
     position: relative;
+    will-change: transform, opacity, backdrop-filter;
 }
+
 .navbar .nav-shell::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 16px;
-    padding: 1px; /* border thickness */
-    background: linear-gradient(120deg,
-    var(--accent-color-one),
-    var(--accent-color-two),
-    var(--background-color-accent));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    padding: 1px;
+    background: linear-gradient(
+            120deg,
+            var(--accent-color-one),
+            var(--accent-color-two),
+            var(--background-color-accent)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.35;
@@ -67,6 +89,8 @@
 .navbar.scrolled .nav-shell,
 .navbar.not-home .nav-shell {
     background: var(--surface-glass);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
 }
 
 /* ===== Brand ===== */
@@ -75,6 +99,8 @@
     align-items: center;
     gap: 6px;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .brand__text {
     font-weight: 800;
@@ -87,7 +113,7 @@
 }
 .brand__dot {
     display: inline-block;
-    translate: 0 -2px;
+    transform: translate(0, -2px); /* iOS-safe vs. 'translate' property */
     color: var(--text-color);
     filter: drop-shadow(0 0 6px var(--accent-color-two));
 }
@@ -111,6 +137,8 @@
     color: var(--navbar-text-color);
     opacity: 0.92;
     transition: opacity .2s ease, transform .2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .nav-links a:hover { opacity: 1; transform: translateY(-1px); }
 
@@ -141,6 +169,7 @@
     opacity: 0.85;
     transition: transform .2s ease, opacity .2s ease, filter .2s ease;
     image-rendering: -webkit-optimize-contrast;
+    -webkit-user-drag: none;
 }
 .social-icon:hover { transform: translateY(-1px) scale(1.04); opacity: 1; }
 
@@ -161,12 +190,15 @@
     border: 1px solid var(--border-glass);
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     transition: box-shadow .2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .theme-toggle:focus-visible { outline: none; box-shadow: 0 0 0 6px rgba(255,255,255,0.14); }
 
@@ -211,6 +243,8 @@
     border-radius: 10px;
     cursor: pointer;
     transition: box-shadow .2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .menu-toggle:focus-visible { outline: none; box-shadow: 0 0 0 6px rgba(255,255,255,0.14); }
 .menu-toggle span {
@@ -237,7 +271,7 @@
         position: absolute;
         top: calc(60px + 20px);
         right: 50%;
-        translate: 50% 0;
+        transform: translate(50%, 0); /* iOS-safe vs. 'translate' property */
         width: min(720px, 92vw);
         flex-direction: column;
         gap: 0;
@@ -245,16 +279,18 @@
         border: 1px solid var(--border-glass);
         border-radius: 14px;
         backdrop-filter: blur(10px) saturate(140%);
+        -webkit-backdrop-filter: blur(10px) saturate(140%);
         overflow: hidden;
         padding: 8px 0;
         box-shadow: var(--nav-shadow);
-        transform: translateY(-12px);
+        transform-origin: top center;
         opacity: 0;
         pointer-events: none;
         transition: transform .25s ease, opacity .25s ease;
+        will-change: transform, opacity, backdrop-filter;
     }
     .nav-links.open {
-        transform: translateY(0);
+        transform: translate(50%, 0);
         opacity: 1;
         pointer-events: auto;
     }
@@ -275,10 +311,15 @@
 /* ===== Legacy classes you already use ===== */
 .navbar-left .Home-Link { text-decoration: none; }
 .navbar-right .Github-Logo,
-.navbar-right .Linkedin-Logo { max-height: 0; } /* kept for compatibility; not used now */
+.navbar-right .Linkedin-Logo { max-height: 0; }
 
 /* ===== Small screens ===== */
 @media (max-width: 480px) {
     .nav-shell { height: 56px; }
     .brand__text { font-size: 1.1rem; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
 }
