@@ -61,11 +61,11 @@ export const projects = [
         title: "Open Mind",
         subtitle: "ConnHacks 2025 Hackathon Submission",
         description:
-            "",
+            "Open Mind is a respectful-dialogue chat app built in C/C++ with a Raylib GUI and a threaded TCP server. Real-time messaging, sentiment guardrails, and guided prompts help polarized users find common ground—created for UN SDG #16 at ConnHacks 2025.",
         image: OpenMind_Demo,
         github_link: "https://github.com/nathancecixx/OpenMind",
         website_link: "https://conhacks.ca/",
-        techStack: ['C', 'C++', 'RayLib']
+        techStack: ["C", "C++", "RayLib"]
     },
     {
         id: "4",
@@ -83,7 +83,7 @@ export const projects = [
         title: "Elo Engineer",
         subtitle: "Discord bot for gaming servers",
         description:
-            "Elo Engineer is a multifaceted Discord bot designed to enhance the gaming experience within a community. This project involved building a bot capable of delivering a range of functionalities, from tracking and displaying player stats to providing server management tools. Developed as an open-source project and hosted on GitHub, Elo Engineer leverages Python for its core logic and Discord.py for seamless integration with Discord servers. The bot includes commands for game-related statistics, music playback, and squad management, making it an essential tool for gaming communities. Elo Engineer was developed with a focus on scalability and customization, allowing server administrators to tailor its features to their community’s specific needs. This project reflects my commitment to creating robust and useful tools for online communities.",
+            "Elo Engineer is a Discord bot built with Python (discord.py). It adds player stats, music playback, a squad builder, and helpful server utilities for gaming communities. Open-source and easy to customize.",
         image: EloEngineer_Demo,
         github_link: "https://github.com/Nathancecixx/EloEngineer",
         website_link: "",
