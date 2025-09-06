@@ -1,151 +1,152 @@
 .footer {
-    position: relative;
-    background: var(--background-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(20px, 3vw, 36px) 0;
-    overflow: hidden;
+  position: relative;
+  background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 3vw, 36px) 0;
+  overflow: hidden;
 }
 
-/* subtle neon hairline at the top */
+/* Subtle neon hairline at the top */
 .footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-            90deg,
-            transparent 0%,
-            var(--accent-color-one) 15%,
-            var(--accent-color-two) 50%,
-            var(--highlight-color-two) 85%,
-            transparent 100%
-    );
-    opacity: 0.9;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-color-one) 15%,
+    var(--accent-color-two) 50%,
+    var(--highlight-color-two) 85%,
+    transparent 100%
+  );
+  opacity: 0.9;
 }
 
+/* ===== Inner layout ===== */
 .footer-inner {
-    width: min(1100px, 92%);
-    margin: 0 auto;
-    text-align: center;            /* center the text block */
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  text-align: center;
 }
 
+/* Main text block */
 .footer-text {
-    color: var(--text-color);
-    margin: 0 auto;                /* center the paragraph itself */
-    max-width: 70ch;
-    line-height: 1.7;
-    font-size: clamp(12px, 0.25vw + 12px, 14px);
-    opacity: 0.92;
-    text-wrap: balance;            /* nicer line breaks on modern browsers */
+  color: var(--text-color);
+  margin: 0 auto;
+  max-width: 70ch;
+  line-height: 1.6;
+  font-size: clamp(12px, 0.25vw + 12px, 14px);
+  opacity: 0.92;
+  text-wrap: balance; /* nicer line breaks (supported by modern browsers) */
 }
 
+/* Secondary meta line */
 .footer-meta {
-    color: color-mix(in oklab, var(--text-color) 80%, transparent);
-    margin: 10px auto 0;           /* center the meta line */
-    font-size: clamp(11px, 0.2vw + 11px, 13px);
+  /* Fallback color if color-mix isn't supported */
+  color: var(--text-color);
+  margin: 10px auto 0;
+  font-size: clamp(11px, 0.2vw + 11px, 13px);
+  opacity: 0.8;
 }
 
-/* “chip” style for highlights */
+/* ===== Inline tokens ===== */
+/* “Chip” style highlights */
 .text-highlight {
-    position: relative;
-    display: inline-block;
-    padding: 2px 8px;
-    margin: 0 2px;
-    border-radius: 999px;
-    color: var(--text-color);
-    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    border: 1px solid rgba(255,255,255,.14);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 2px;
+  border-radius: 999px;
+  color: var(--text-color);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  white-space: nowrap;
 }
 
-/* Fancy effect for your name */
+/* Gradient “name” with shimmer + optional glint-on-hover */
 .name-fx {
-    position: relative;
-    display: inline-block;
-    font-weight: 800;
-    white-space: nowrap;
-    background: linear-gradient(
-            90deg,
-            var(--accent-color-one),
-            var(--accent-color-two),
-            var(--highlight-color-two),
-            var(--accent-color-one)
-    );
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow:
-            0 0 10px color-mix(in oklab, var(--accent-color-two) 25%, transparent),
-            0 0 18px color-mix(in oklab, var(--accent-color-two) 18%, transparent);
-    animation: nameShimmer 8s ease-in-out infinite;
-
-    position: relative;
-    overflow: hidden
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  white-space: nowrap;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color-one),
+    var(--accent-color-two),
+    var(--highlight-color-two),
+    var(--accent-color-one)
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 10px color-mix(in oklab, var(--accent-color-two) 25%, transparent),
+    0 0 18px color-mix(in oklab, var(--accent-color-two) 18%, transparent);
+  animation: nameShimmer 8s ease-in-out infinite;
+  overflow: hidden; /* keep the glint inside */
 }
 
+/* Make inline tokens align perfectly with the paragraph baseline */
+.footer-text .name-fx,
+.footer-text .text-highlight {
+  line-height: 1;          /* remove internal leading */
+  vertical-align: middle;  /* baseline alignment */
+}
 
+/* Micro-nudges for optical alignment (tweak if needed) */
+.footer-text .name-fx { vertical-align: -0.06em; }
+.footer-text .text-highlight { vertical-align: -0.04em; }
+
+/* Subtle glint pass on hover/focus */
 .name-fx::after {
-    content: "";
-    position: absolute;
-    inset: -2px -4px;
-    background: linear-gradient(
-        120deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.7) 50%,
-        transparent 70%
-    );
-    transform: translateX(-120%) skewX(-20deg);
-    opacity: 0;
-    will-change: transform, opacity;
-    transition: opacity 0.25s ease;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: -2px -4px;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
 }
 
 .name-fx:hover::after,
 .name-fx:focus-visible::after {
-    opacity: 1;
-    animation: nameGlint 1.1s ease forwards;
+  opacity: 1;
+  animation: nameGlint 1.1s ease forwards;
 }
 
-
-/* Animations */
+/* ===== Animations ===== */
 @keyframes nameShimmer {
-    0%   { background-position:   0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position:   0% 50%; }
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
 
 @keyframes nameGlint {
-    to { transform: translateX(120%) skewX(-20deg); }
+  to { transform: translateX(120%) skewX(-20deg); }
 }
 
-/* mobile tweaks */
+/* ===== Responsiveness ===== */
 @media (max-width: 520px) {
-    .footer-text { max-width: 90ch; }
+  .footer-text { max-width: 90ch; }
 }
 
-/* Respect reduced motion */
+/* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
-    .name-fx { animation: none; }
-    .name-fx::after { animation: none; transition: none; opacity: 0 !important; }
-}
-
-
-@keyframes nameGlint {
-    to {
-        transform: translateX(120%) skewX(-20deg);
-    }
-}
-
-/* Respect motion settings */
-@media (prefers-reduced-motion: reduce) {
-    .name-fx::after {
-        animation: none !important;
-    }
+  .name-fx { animation: none; }
+  .name-fx::after { animation: none; transition: none; opacity: 0 !important; }
 }
