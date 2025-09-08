@@ -131,7 +131,7 @@ export const gamejams = [
         title: "PingPong Boxing (VR Game)",
         subtitle: "VARLab GameJam winter 2025",
         description:
-            "",
+            "In the winter of my second year, I joined the VARLab Winter 2025 Game Jam where our team set out to push boundaries by combining two unlikely mechanics—ping pong and boxing—into an immersive VR experience. Built in Unity with C# and Blender, the project challenged us to design responsive VR gameplay that was both fun and physically engaging. The jam pushed my skills in 3D design and interaction programming, and it was an exciting opportunity to collaborate with teammates on bringing an experimental concept to life.",
         image: BoxPong_Demo,
         github_link: "",
         website_link: "",
