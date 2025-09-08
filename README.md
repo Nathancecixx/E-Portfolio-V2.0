@@ -8,7 +8,7 @@ A modern, sleek, and professional portfolio website built with **React** to show
 
 ## Project Overview <a name="project-overview"></a>
 
-[![Portfolio Screenshot](Demo.png)](https://www.nathanceci.com)
+[![Portfolio Screenshot](Demo.PNG)](https://www.nathanceci.com)
 
 ### Key Features
 
