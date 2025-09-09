@@ -70,7 +70,7 @@ export const projects = [
     },
     {
         id: "6",
-        title: "Sneaker Shop Web Server",
+        title: "Secure Kicks",
         subtitle: "Custom C++ Web Server with CROW",
         description:
             "Sneaker Shop is a full-stack project where I built a custom web server from scratch using C++ and the CROW framework. The server powers a dynamic sneaker storefront with product inventory, real-time cart and checkout features, and a responsive front-end interface. To ensure scalability and consistent deployment, I containerized the app with Docker and structured the build with CMake, delivering both performance and maintainability.",
