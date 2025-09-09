@@ -66,7 +66,7 @@ export const projects = [
         image: OpenMind_Demo,
         github_link: "https://github.com/nathancecixx/OpenMind",
         website_link: "https://conhacks.ca/",
-        techStack: ["C", "C++", "RayLib"]
+        techStack: ["C", "C++", "Python", "TCP/IP", "RayLib"]
     },
     {
         id: "6",
