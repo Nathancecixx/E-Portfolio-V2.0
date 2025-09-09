@@ -12,6 +12,7 @@ import LilWiz_Demo from "../Resources/Images/LilWizDemo.png"
 import BoxPong_Demo from "../Resources/Images/BoxPong_Demo.png"
 import OpenMind_Demo from "../Resources/Images/OneMind_Demo.png"
 import DriveAware from "../Resources/Images/DriveAware_Demo.png"
+import SneakerShop_Demo from "../Resources/Images/SneakerShop_Demo.png"
 
 
 export const skills = [
@@ -68,6 +69,17 @@ export const projects = [
         techStack: ["C", "C++", "RayLib"]
     },
     {
+        id: "6",
+        title: "Sneaker Shop Web Server",
+        subtitle: "Custom C++ Web Server with CROW",
+        description:
+            "Sneaker Shop is a full-stack project where I built a custom web server from scratch using C++ and the CROW framework. The server powers a dynamic sneaker storefront with product inventory, real-time cart and checkout features, and a responsive front-end interface. To ensure scalability and consistent deployment, I containerized the app with Docker and structured the build with CMake, delivering both performance and maintainability.",
+        image: SneakerShop_Demo,
+        github_link: "https://github.com/Nathancecixx/SecureKicks",
+        website_link: "",
+        techStack: ["C++", "CROW", "HTML", "CSS", "JavaScript", "Docker"]
+    },
+    {
         id: "4",
         title: "Encrypterizer",
         subtitle: "Basic CLI file encryption",
@@ -77,17 +89,6 @@ export const projects = [
         github_link: "https://github.com/Nathancecixx/Encrypterizer",
         website_link: "",
         techStack: ['C', 'C++', 'Github']
-    },
-    {
-        id: "2",
-        title: "Elo Engineer",
-        subtitle: "Discord bot for gaming servers",
-        description:
-            "Elo Engineer is a Discord bot built with Python (discord.py). It adds player stats, music playback, a squad builder, and helpful server utilities for gaming communities. Open-source and easy to customize.",
-        image: EloEngineer_Demo,
-        github_link: "https://github.com/Nathancecixx/EloEngineer",
-        website_link: "",
-        techStack: ['Python', 'Discord API']
     },
     {
         id: "3",
@@ -101,16 +102,16 @@ export const projects = [
         techStack: ['Javascript', 'React', 'Material UI']
     },
     {
-        id: "6",
-        title: "Sneaker Shop Web Server",
-        subtitle: "Custom C++ Web Server with CROW",
+        id: "2",
+        title: "Elo Engineer",
+        subtitle: "Discord bot for gaming servers",
         description:
-            "Sneaker Shop is a full-stack project where I built a custom web server from scratch using C++ and the CROW framework. The server powers a dynamic sneaker storefront with product inventory, real-time cart and checkout features, and a responsive front-end interface. To ensure scalability and consistent deployment, I containerized the app with Docker and structured the build with CMake, delivering both performance and maintainability.",
-        image: SneakerShop_Demo, 
-        github_link: "https://github.com/Nathancecixx/CPP-Server",
+            "Elo Engineer is a Discord bot built with Python (discord.py). It adds player stats, music playback, a squad builder, and helpful server utilities for gaming communities. Open-source and easy to customize.",
+        image: EloEngineer_Demo,
+        github_link: "https://github.com/Nathancecixx/EloEngineer",
         website_link: "",
-        techStack: ["C++", "CROW", "HTML", "CSS", "JavaScript", "Docker"]
-    }
+        techStack: ['Python', 'Discord API']
+    },
 ];
 
 
