@@ -53,7 +53,7 @@ export const projects = [
         description:
             "In collaboration with a team of classmates, we developed Drive Aware using agile sprint methodologies, leveraging Azure Boards for project management. The project involved comprehensive systems analysis and design, including the creation of various diagrams such as sequence diagrams, use case diagrams, and more, to ensure a well-structured and efficient development process.",
         image: DriveAware,
-        github_link: "https://github.com/Nathancecixx/Group5F24",
+        github_link: "https://github.com/Nathancecixx/Group5F24Backend",
         website_link: "",
         techStack: ['Javascript', 'React Native', 'Python', 'Flask', 'SQLite']
     },
