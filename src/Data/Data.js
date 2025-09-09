@@ -97,7 +97,7 @@ export const projects = [
             "As a hobby project I decided to create my take on a UFC stat website. I have a backend REST api that I can request a range of different stats and info from.  For the frontend, I used React JS along with the Material UI library to achieve a responsive, polished, and consistent user experience.",
         image: UFC_Demo,
         github_link: "",
-        website_link: "https://ufcstats.ca",
+        website_link: "https://ufc-stats-h7n4r3rw5-nathans-projects-775265ba.vercel.app/",
         techStack: ['Javascript', 'React', 'Material UI']
     },
 ];
