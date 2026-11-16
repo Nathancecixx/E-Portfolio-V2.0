@@ -76,7 +76,8 @@ test('whole page: navigation, contact links and plain wording', () => {
   within(nav).getAllByRole('link').forEach(link =>
     expect(document.querySelector(link.getAttribute('href'))).toBeInTheDocument());
   expect(screen.getByRole('link', { name: 'Nceci6042@conestogac.on.ca' })).toHaveAttribute('href', 'mailto:Nceci6042@conestogac.on.ca');
-  expect(screen.getByRole('link', { name: '519 993 5617' })).toHaveAttribute('href', 'tel:5199935617');
+  expect(document.querySelector('a[href^="tel:"]')).not.toBeInTheDocument();
+  expect(document.body.textContent).not.toMatch(/993/);
   expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/nathan-ceci/');
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(document.body.textContent).not.toMatch(/mindful of the person|practical curiosity|field note|a lot to learn from/i);

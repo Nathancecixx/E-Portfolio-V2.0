@@ -8,7 +8,6 @@ export default function Contact() {
         </div>
         <div className="contact-details">
           <a className="email-link" href="mailto:Nceci6042@conestogac.on.ca">Nceci6042@conestogac.on.ca</a>
-          <a className="phone-link" href="tel:5199935617">519 993 5617</a>
           <div className="social-links">
             <a href="https://github.com/Nathancecixx" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
             <a href="https://www.linkedin.com/in/nathan-ceci/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
