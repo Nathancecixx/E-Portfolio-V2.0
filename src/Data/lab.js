@@ -47,7 +47,7 @@ export const lab = {
       tag: 'Type 1 hypervisor · 14 VMs',
       wide: true,
       total: 14,
-      note: 'A workstation I built that runs Proxmox on bare metal. Every job gets its own virtual machine, and I set up, update and troubleshoot all of them. Pick one to see what it does.',
+      note: 'A workstation I built that runs Proxmox on bare metal. Every job gets its own virtual machine or LXC container, and I set up, update and troubleshoot all of them. Pick one to see what it does.',
       services: [
         { id: 'ai', name: 'AI server', runs: 'llama.cpp · GPU passthrough', note: 'The graphics cards are passed straight through to this VM, where llama.cpp runs AI models locally instead of in the cloud.' },
         { id: 'jellyfin', name: 'Jellyfin', runs: 'Media server', note: 'Movies and shows, streamed to devices around the house.' },
