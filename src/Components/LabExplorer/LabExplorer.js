@@ -40,7 +40,7 @@ export default function LabExplorer() {
     <section className="lab-section section-shell" id="home-lab" aria-labelledby="lab-title">
       <div className="section-head">
         <h2 id="lab-title">Home lab</h2>
-        <p>Two Raspberry Pis and a Proxmox workstation, wired into a small rack. I set all of it up and I keep it running.</p>
+        <p>Two Raspberry Pis and a Proxmox workstation, wired into a small rack.</p>
       </div>
 
       <section className="lab" aria-label="Home lab diagram">

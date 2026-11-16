@@ -81,7 +81,7 @@ test('whole page: navigation, contact links and plain wording', () => {
   expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/nathan-ceci/');
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(document.body.textContent).not.toMatch(/mindful of the person|practical curiosity|field note|a lot to learn from/i);
-  expect(document.body.textContent).not.toMatch(/help from LilRed|helped build|built this site/i);
+  expect(document.body.textContent).not.toMatch(/help from LilRed|helped build|built this site|keep it running/i);
   expect(screen.getByText(/personal assistant\. I message it/i)).toBeInTheDocument();
   const ids = Array.from(document.querySelectorAll('[id]'), el => el.id);
   expect(new Set(ids).size).toBe(ids.length);
