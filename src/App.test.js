@@ -9,6 +9,16 @@ import { lab } from './Data/lab';
 
 const click = element => act(() => userEvent.click(element));
 
+// jsdom has no matchMedia, so tests say what the device prefers.
+const setDevice = dark => {
+  window.matchMedia = jest.fn(query => ({ matches: dark && query.includes('dark'), media: query, addEventListener: jest.fn(), removeEventListener: jest.fn() }));
+};
+afterEach(() => {
+  localStorage.clear();
+  delete window.matchMedia;
+  document.documentElement.removeAttribute('data-theme');
+});
+
 test('introduces Nathan as a student looking for a first IT job', () => {
   render(<Home />);
   expect(screen.getByRole('heading', { level: 1, name: /IT systems, networking & software/i })).toBeInTheDocument();
@@ -85,4 +95,31 @@ test('whole page: navigation, contact links and plain wording', () => {
   expect(screen.getByText(/personal assistant\. I message it/i)).toBeInTheDocument();
   const ids = Array.from(document.querySelectorAll('[id]'), el => el.id);
   expect(new Set(ids).size).toBe(ids.length);
+});
+
+test('theme follows the device until the visitor picks one', () => {
+  setDevice(true);
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  click(screen.getByRole('button', { name: 'Switch to light theme' }));
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+  expect(localStorage.getItem('theme')).toBe('light');
+  // Picking the device's own setting again goes back to following the device.
+  click(screen.getByRole('button', { name: 'Switch to dark theme' }));
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  expect(localStorage.getItem('theme')).toBeNull();
+});
+
+test('remembers the visitor\'s theme over the device setting', () => {
+  setDevice(false);
+  localStorage.setItem('theme', 'dark');
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  expect(screen.getByRole('button', { name: 'Switch to light theme' })).toBeInTheDocument();
+});
+
+test('uses the light theme when the device has no preference', () => {
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+  expect(screen.getByRole('button', { name: 'Switch to dark theme' })).toBeInTheDocument();
 });
