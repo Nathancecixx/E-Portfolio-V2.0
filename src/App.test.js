@@ -53,18 +53,20 @@ test('keeps the lab data consistent so it stays easy to edit', () => {
   });
 });
 
-test('filters the nine original projects', () => {
+test('lists Forge with the nine original projects and filters them', () => {
   render(<Projects />);
   const pick = name => click(screen.getByRole('button', { name, exact: true }));
-  expect(screen.getAllByRole('article')).toHaveLength(9);
+  expect(screen.getAllByRole('article')).toHaveLength(10);
+  expect(screen.getAllByRole('heading', { level: 3 })[0]).toHaveTextContent('Forge');
   pick('Software');
-  expect(screen.getAllByRole('article')).toHaveLength(6);
+  expect(screen.getAllByRole('article')).toHaveLength(7);
+  expect(screen.getByRole('heading', { name: 'Forge' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Drive Aware on GitHub/i })).toHaveAttribute('href', 'https://github.com/Nathancecixx/Group5F24Backend');
   pick('Games');
   expect(screen.getAllByRole('article')).toHaveLength(3);
   expect(screen.getByRole('heading', { name: 'Little Wizard' })).toBeInTheDocument();
   pick('All');
-  ['Drive Aware', 'Open Mind', 'Secure Kicks', 'Encrypterizer', 'UFC Stats Hub', 'Elo Engineer', 'BitNByte', 'Little Wizard', 'PingPong Boxing (VR Game)'].forEach(name =>
+  ['Forge', 'Drive Aware', 'Open Mind', 'Secure Kicks', 'Encrypterizer', 'UFC Stats Hub', 'Elo Engineer', 'BitNByte', 'Little Wizard', 'PingPong Boxing (VR Game)'].forEach(name =>
     expect(screen.getByRole('heading', { name, exact: true })).toBeInTheDocument());
 });
 
@@ -78,6 +80,8 @@ test('whole page: navigation, contact links and plain wording', () => {
   expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/nathan-ceci/');
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(document.body.textContent).not.toMatch(/mindful of the person|practical curiosity|field note|a lot to learn from/i);
+  expect(document.body.textContent).not.toMatch(/help from LilRed|helped build|built this site/i);
+  expect(screen.getByText(/personal assistant\. I message it/i)).toBeInTheDocument();
   const ids = Array.from(document.querySelectorAll('[id]'), el => el.id);
   expect(new Set(ids).size).toBe(ids.length);
 });

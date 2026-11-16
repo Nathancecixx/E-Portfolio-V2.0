@@ -28,8 +28,8 @@ export const lab = {
     {
       id: 'lilred',
       name: 'LilRed',
-      tag: 'Raspberry Pi · AI assistant',
-      note: 'A Raspberry Pi running Hermes Agent as my personal assistant. I message it on Discord and it helps me look after the lab. It helped build this site too.',
+      tag: 'Raspberry Pi · Personal assistant',
+      note: 'A Raspberry Pi running Hermes Agent as my personal assistant. I message it on Discord and it manages my calendar, starts and stops VMs, and checks on the lab for me.',
     },
     {
       id: 'services-pi',

@@ -19,7 +19,7 @@ export default function Projects() {
       <div className="project-archive">
         {visible.map(project => (
           <article className="archive-project" key={project.id} aria-labelledby={`project-${project.id}`}>
-            <div className="archive-media"><img src={project.image} alt={`${project.title} screenshot`} loading="lazy" width="640" height="360" /></div>
+            <div className={`archive-media${project.showWhole ? ' whole' : ''}`}><img src={project.image} alt={`${project.title} screenshot`} loading="lazy" width="640" height="360" /></div>
             <div className="archive-copy">
               <p className="eyebrow">{project.context}</p>
               <h3 id={`project-${project.id}`}>{project.title}</h3>
