@@ -1,25 +1,9 @@
 {
   "short_name": "Nathan Ceci",
-  "name": "Nathan Ceci's E-portfolio",
-  "icons": [
-    {
-      "src": "E-Portfolio-Logo.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "E-Portfolio-Logo-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "E-Portfolio-Logo-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
+  "name": "Nathan Ceci — IT systems, networking & software",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#d7d1f3"
+  "display": "browser",
+  "theme_color": "#f6f3eb",
+  "background_color": "#f6f3eb"
 }

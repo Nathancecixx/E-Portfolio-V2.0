@@ -1,43 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
-
-
 :root {
-  --background-color: #e3dcfe;
-  --background-color-accent: #d7d1f3;
-  --text-color: #333;
-  --navbar-text-color: #090132;
-  --accent-color-one: #9475fd;
-  --accent-color-two: #2dfb95;
-  --highlight-color-one: #9475fd;
-  --highlight-color-two: rgba(139, 105, 255, 0.20);
-  --github-logo-height: 4rem;
+  --paper: #f6f3eb;
+  --ink: #262a26;
+  --muted: #62645b;
+  --rule: #d3d2c6;
+  --accent: #9b3c2b;
+  --soft: #edeade;
+  --display: Georgia, 'Times New Roman', serif;
+  --body: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  color-scheme: light;
 }
-
-[data-theme="dark"] {
-  --background-color: #080123;
-  --background-color-accent: #9777fd;
-  --text-color: #d5cdfe;
-  --navbar-text-color: #d5cdfe;
-  --accent-color-one: #009688 ;
-  --accent-color-two: #ff7043 ;
-  --highlight-color-one: #16c1b1;
-  --highlight-color-two: rgba(0 , 150, 136, 0.20);
-  --github-logo-height: 4rem;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+::selection { background: #e5c3af; color: #262a26; }
+a { color: inherit; text-underline-offset: .22em; }
+button { font: inherit; cursor: pointer; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, main:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+button:focus-visible { position: relative; z-index: 2; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+h1, h2, h3 { text-wrap: pretty; }
+p { text-wrap: pretty; }
+h1, h2 { font-family: var(--display); font-weight: 400; }
+em, .serif-italic { font-weight: 400; font-style: italic; }
+ul { padding: 0; list-style: none; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }

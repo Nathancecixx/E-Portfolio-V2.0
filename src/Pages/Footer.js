@@ -1,23 +1,9 @@
-import React from "react";
-import "./Footer.css";
-
-const Footer = () => {
-    const year = new Date().getFullYear();
-
-    return (
-        <footer className="footer" aria-label="Site footer">
-            <div className="footer-inner">
-                <p className="footer-text">
-                    Loosely designed in <span className="text-highlight">Adobe XD</span> and
-                    written using the <span className="text-highlight">CLion IDE</span> by{" "}
-                    <span className="name-fx">Nathan Ceci</span>. Built with{" "}
-                    <span className="text-highlight">JavaScript</span> +
-                    <span className="text-highlight"> React</span>, deployed on{" "}
-                    <span className="text-highlight">Vercel</span>.
-                </p>
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+export default function Footer() {
+  return (
+    <footer className="site-footer section-shell">
+      <a className="wordmark" href="#home">Nathan Ceci<span aria-hidden="true">.</span></a>
+      <p>Built with React.</p>
+      <a className="text-link" href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+  );
+}

@@ -1,50 +1,43 @@
-# Nathan Ceci — Portfolio Website
+# nathanceci.com
 
-A modern, sleek, and professional portfolio website built with **React** to showcase my projects, expertise, and experience. It highlights my development journey, technical skills, and creative work.
+My portfolio site. React 18 on Create React App.
 
----
+## Run it
 
+```sh
+npm ci
+npm start                                          # dev server with live reload
+CI=true npm test -- --watchAll=false --runInBand   # tests
+npm run build                                      # production build
+```
 
+## Editing content
 
-## Project Overview <a name="project-overview"></a>
+| What | File |
+|---|---|
+| Home lab diagram | `src/Data/lab.js` |
+| Projects | `src/Data/portfolio.js` |
+| Intro and rack photo | `src/Pages/Home.js` |
+| About, school and work history | `src/Pages/AboutMe.js` |
+| Contact details | `src/Pages/Contact.js` |
+| Colours and fonts | `src/index.css` |
+| Layout | `src/App.css` |
 
-[![Portfolio Screenshot](Demo.PNG)](https://www.nathanceci.com)
+### Updating the home lab
 
-### Key Features
+The diagram is drawn from `src/Data/lab.js`. The comment at the top of that file explains each field.
 
-* **Responsive React Frontend**
-  Built with React for speed and scalability, ensuring a seamless browsing experience across devices.
+- New VM worth showing: add `{ id, name, runs, note }` to a host's `services`.
+- New VM not worth showing: bump the host's `total`. It is counted in "+ N more".
+- New machine: add `{ id, name, tag, note }` to `hosts`.
+- Change `updated` to the current month.
 
-* **Modern & Sleek Design**
-  Inspired by cutting-edge crypto websites, featuring gradients, glassmorphism, animations, and a dark/light theme toggle.
+Do not put IP addresses, hostnames, ports or admin URLs in that file. The site is public.
 
-* **Projects & Expertise Sections**
-  Showcases detailed write-ups of my software projects, game jam entries, and technical skills.
+## Publishing
 
-* **Interactive Animations**
-  Smooth transitions powered by AOS and Framer Motion for a dynamic browsing experience.
+`master` deploys to nathanceci.com through Vercel. Work on a branch, check it locally, then merge.
 
-* **Optimized Deployment**
-  Hosted with **Vercel**, ensuring fast global delivery and automatic redeployment on push.
+The Create React App dependency tree is old and `npm audit` reports known vulnerabilities in it. They affect the dev tooling, so keep the dev server on the LAN. Moving off CRA is a separate job.
 
----
-
-## Technology Stack <a name="technology-stack"></a>
-
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge\&logo=react\&logoColor=61DAFB)](https://react.dev/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://vercel.com/)
-
-**Additional Libraries & Tools**
-
-* AOS (Animate on Scroll)
-* Framer Motion
-* Material UI / Styled Components
-* Git & GitHub for version control
-
----
-
-✨ **[Visit My Portfolio →](https://www.nathanceci.com)** ✨
-
-
+`src/Data/Data.js` and the unused components and stylesheets are left over from the previous version of the site.
