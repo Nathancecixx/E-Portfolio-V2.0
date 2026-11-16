@@ -1,9 +1,22 @@
 export default function AboutMe() {
   return (
     <section className="about-section section-shell" id="about-me" aria-labelledby="about-title">
-      <div className="section-heading"><p className="eyebrow">03 / A little context</p><div><h2 id="about-title">Curious about the system.<br /><em>Mindful of the person using it.</em></h2></div></div>
-      <div className="about-layout"><div className="about-story"><p className="large-copy">I'm Nathan, a computer science student in Guelph, Ontario. I enjoy the point where software meets the hardware and network it depends on.</p><p>I've built computers, put together my own Proxmox machine and network rack, and set up a Raspberry Pi DNS server. Alongside that, my studies have given me a foundation in Windows and Linux architecture, virtualization and programming.</p><p>Helping family with tech, including my mother's work-from-home setup, has made the human side of troubleshooting important to me. Listening and explaining clearly are part of the work.</p><p>I'm curious about AI backend infrastructure, security and architecture. Those are areas I want to learn more about, not areas I'm claiming professional expertise in.</p><div className="learning-note"><p className="eyebrow">What I'm looking for</p><p>A first IT role where I can help with real problems, learn from an experienced team and keep building a stronger technical foundation.</p></div></div>
-      <div className="experience"><h3>Experience &amp; education</h3><div className="experience-entry"><p className="eyebrow">Current studies</p><h4>Conestoga College</h4><p>Bachelor of Computer Science</p><p className="muted">Fourth year · one semester remaining</p></div><div className="experience-entry"><p className="eyebrow">May 2024 – present</p><h4>Canadian Tire</h4><p>Retail experience</p></div><div className="experience-entry"><p className="eyebrow">September 2021 – August 2023</p><h4>Foodland</h4><p>Supervisor</p></div><p className="experience-note">My work experience so far is outside professional IT. I'm bringing that experience with people into my next step.</p><div className="foundation"><span className="eyebrow">Software foundation</span><p>C / C++ / Python / Java / C#<br />React / Git &amp; GitHub / team projects</p><a className="text-link" href="https://github.com/Nathancecixx/Subject-Observer-Java" target="_blank" rel="noopener noreferrer">Java coursework on GitHub <span aria-hidden="true">↗</span></a></div></div></div>
+      <div className="section-head"><h2 id="about-title">About me</h2></div>
+      <div className="about-layout">
+        <div className="about-story">
+          <p className="large-copy">I started my degree planning to be a programmer. What I kept coming back to was everything underneath the code: operating systems, networking, virtualization and hardware.</p>
+          <p>Most of what I know about running systems comes from my home lab. When I hit software I haven't used before, I read up on it and work at it until it runs.</p>
+          <p>I'm also the IT guy for my family. My mom works from home, so her setup has to work. When my uncle had a Wi-Fi dead spot in his house, I found it and fixed it with an extender.</p>
+          <p>At school I've designed networks segmented into VLANs in Cisco Packet Tracer. At home I've built PCs and worked with Raspberry Pis, switches, routers and cabling.</p>
+          <p>Lately I'm most interested in how AI runs behind the scenes. Further out, I'd like to move toward security or systems architecture.</p>
+        </div>
+        <div className="experience">
+          <div className="experience-entry"><p className="eyebrow">Finishing April 2027</p><h3>Conestoga College</h3><p>Bachelor of Computer Science</p></div>
+          <div className="experience-entry"><p className="eyebrow">May 2024 – present</p><h3>Canadian Tire</h3><p>Sales Associate</p></div>
+          <div className="experience-entry"><p className="eyebrow">Sep 2021 – Aug 2023</p><h3>Foodland</h3><p>Supervisor</p></div>
+          <div className="experience-entry"><p className="eyebrow">Languages</p><p>C, C++, C#, Python, Java, JavaScript</p></div>
+        </div>
+      </div>
     </section>
   );
 }

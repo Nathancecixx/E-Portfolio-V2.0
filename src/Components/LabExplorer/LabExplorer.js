@@ -1,27 +1,64 @@
-import { useState } from 'react';
-import { labNodes } from '../../Data/lab';
+import { Fragment, useState } from 'react';
+import { lab } from '../../Data/lab';
+
+function Host({ host, selected, onSelect }) {
+  const services = host.services || [];
+  const active = services.find(service => service.id === selected);
+  const more = host.total ? host.total - services.length : 0;
+
+  return (
+    <article className={`lab-host${host.wide ? ' wide' : ''}`} aria-labelledby={`lab-${host.id}`}>
+      <h3 id={`lab-${host.id}`}>{host.name}</h3>
+      <p className="lab-tag">{host.tag}</p>
+
+      {services.length > 0 && (
+        <ul className="lab-services">
+          {services.map(service => (
+            <li key={service.id}>
+              <button type="button" aria-pressed={selected === service.id} onClick={() => onSelect(service.id)}>
+                {service.name}
+              </button>
+            </li>
+          ))}
+          {more > 0 && <li className="lab-more">+ {more} more</li>}
+        </ul>
+      )}
+
+      <div className="lab-note" aria-live="polite">
+        {active && <p className="lab-runs">{active.runs}</p>}
+        <p>{active ? active.note : host.note}</p>
+      </div>
+    </article>
+  );
+}
 
 export default function LabExplorer() {
-  const [selected, setSelected] = useState('host');
-  const active = labNodes.find(node => node.id === selected);
+  const [selected, setSelected] = useState(null);
+  const toggle = id => setSelected(current => (current === id ? null : id));
+
   return (
     <section className="lab-section section-shell" id="home-lab" aria-labelledby="lab-title">
-      <div className="section-heading"><p className="eyebrow">01 / Systems in practice</p><div><h2 id="lab-title">A home lab.<br /><em>A lot to learn from.</em></h2><p>Hardware I've built, services I've set up, and a place to try things. Select a part of the lab to see what I do with it.</p></div></div>
-      <div className="explorer">
-        <div className="lab-map">
-          <div className="map-caption"><span className="eyebrow">Lab topology / select a node</span><span aria-hidden="true">↙</span></div>
-          <div className="diagram-nodes" role="group" aria-label="Home lab components">
-            {labNodes.map((node, index) => <button type="button" key={node.id} className={`lab-node node-${node.id}`} aria-pressed={selected === node.id} aria-controls="lab-field-note" onClick={() => setSelected(node.id)}><span className="node-index" aria-hidden="true">0{index + 1}</span><span><strong>{node.label}</strong><small>{node.short}</small></span><span className="node-select" aria-hidden="true">↗</span></button>)}
-          </div>
-          <p className="diagram-disclaimer">Simplified diagram, not live monitoring. Connections show concepts, not the full network layout.</p>
-        </div>
-        <section className="lab-detail" id="lab-field-note" aria-label="Lab field note" aria-live="polite" aria-atomic="true">
-          <p className="eyebrow">Field note / {active.category}</p><h3>{active.title}</h3>
-          <dl><div><dt>What I've done</dt><dd>{active.work}</dd></div><div><dt>Why it's here</dt><dd>{active.purpose}</dd></div><div><dt>What I'm learning</dt><dd>{active.lesson}</dd></div></dl>
-          <span className="detail-footer">Personal home lab · hands-on experience</span>
-        </section>
+      <div className="section-head">
+        <h2 id="lab-title">Home lab</h2>
+        <p>Two Raspberry Pis and a Proxmox workstation, wired into a small rack. I set all of it up and I keep it running.</p>
       </div>
-      <div className="lab-footnote"><span className="eyebrow">A different kind of lab</span><p><strong>Cisco Packet Tracer:</strong> I practise VLAN configurations and lab network design in simulation. That's separate from the physical home lab above.</p></div>
+
+      <section className="lab" aria-label="Home lab diagram">
+        <ol className="lab-path">
+          {lab.path.map(stop => (
+            <Fragment key={stop.id}>
+              <li className="lab-stop"><strong>{stop.name}</strong><span>{stop.detail}</span></li>
+              {stop.link && <li className="lab-link"><span>{stop.link}</span></li>}
+            </Fragment>
+          ))}
+        </ol>
+
+        <div className="lab-hosts">
+          {lab.hosts.map(host => <Host key={host.id} host={host} selected={selected} onSelect={toggle} />)}
+        </div>
+
+        <p className="lab-updated">Simplified layout, not live data. Last updated {lab.updated}.</p>
+      </section>
     </section>
   );
 }

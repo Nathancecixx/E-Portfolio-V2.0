@@ -1,5 +1,20 @@
 export default function Contact() {
   return (
-    <section className="contact-section section-shell" id="contact" aria-labelledby="contact-title"><p className="eyebrow">04 / Get in touch</p><div className="contact-layout"><div><h2 id="contact-title">Have a place<br />for someone <em>curious?</em></h2><p>I'm looking for my first opportunity in IT. If you'd like to talk about a role, my projects or how I approach a problem, I'd like to hear from you.</p><span className="contact-location">Based in Guelph, Ontario</span></div><div className="contact-details"><p className="eyebrow">Email is the best place to start</p><a className="email-link" href="mailto:Nceci6042@conestogac.on.ca">Nceci6042@conestogac.on.ca</a><p className="muted">Opens your email app. You can also copy the address above.</p><a className="phone-link" href="tel:5199935617">519 993 5617</a><div className="social-links"><a href="https://github.com/Nathancecixx" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/nathan-ceci/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://www.nathanceci.com">nathanceci.com <span aria-hidden="true">↗</span></a></div></div></div></section>
+    <section className="contact-section section-shell" id="contact" aria-labelledby="contact-title">
+      <div className="contact-layout">
+        <div>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>I'm looking for my first IT role in or around Guelph. Email is the best way to reach me.</p>
+        </div>
+        <div className="contact-details">
+          <a className="email-link" href="mailto:Nceci6042@conestogac.on.ca">Nceci6042@conestogac.on.ca</a>
+          <a className="phone-link" href="tel:5199935617">519 993 5617</a>
+          <div className="social-links">
+            <a href="https://github.com/Nathancecixx" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/nathan-ceci/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

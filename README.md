@@ -1,51 +1,43 @@
-# Nathan Ceci / a working portfolio
+# nathanceci.com
 
-React 18 + Create React App 5. An editorial portfolio focused on Nathan's first step into IT, with a conceptual home lab explorer and a filterable archive of software and game projects.
+My portfolio site. React 18 on Create React App.
 
-## Local development
-
-Use the existing lockfile. Do not substitute a forced dependency upgrade for a planned CRA migration.
+## Run it
 
 ```sh
 npm ci
-npm start
+npm start                                          # dev server with live reload
+CI=true npm test -- --watchAll=false --runInBand   # tests
+npm run build                                      # production build
 ```
 
-```sh
-CI=true npm test -- --watchAll=false --runInBand
-npm run build
-```
+## Editing content
 
-The site is a static client application. It does not call a lab API, expose administrative interfaces, poll services, or submit a contact form. Contact uses `mailto:` and `tel:` links; sending an email depends on the visitor's configured email app. The address remains selectable as a fallback.
+| What | File |
+|---|---|
+| Home lab diagram | `src/Data/lab.js` |
+| Projects | `src/Data/portfolio.js` |
+| Intro and rack photo | `src/Pages/Home.js` |
+| About, school and work history | `src/Pages/AboutMe.js` |
+| Contact details | `src/Pages/Contact.js` |
+| Colours and fonts | `src/index.css` |
+| Layout | `src/App.css` |
 
-## Where content lives
+### Updating the home lab
 
-- `src/Pages/Home.js`: introduction and current focus.
-- `src/Components/LabExplorer/LabExplorer.js`: native button-based explorer; selected state uses `aria-pressed`, with a polite detail region.
-- `src/Data/lab.js`: lab notes. Keep physical work distinct from simulations and future learning.
-- `src/Data/portfolio.js`: all nine original software/game projects, their original screenshots and source/demo links, plus three systems entries. Project descriptions are shortened without inventing outcomes.
-- `src/Pages/Projects.js`: four filters, result count and readable project summaries. Open Mind's secondary link is the hackathon website, not a demo.
-- `src/Pages/AboutMe.js`: studies and employment. Graduation year is deliberately unspecified.
-- `src/Pages/Contact.js`: approved contact details.
-- `src/index.css` and `src/App.css`: tokens, layout, responsive rules, focus and reduced-motion styles. Fonts use local fallbacks; no font CDN is needed.
-- `public/index.html`, `public/manifest.json`, `public/favicon.svg`: page metadata and identity.
+The diagram is drawn from `src/Data/lab.js`. The comment at the top of that file explains each field.
 
-Original `src/Data/Data.js`, images and unused legacy components are retained for reference. The application no longer imports their animations, old theme or inflated expertise copy. Avoid reintroducing those imports.
+- New VM worth showing: add `{ id, name, runs, note }` to a host's `services`.
+- New VM not worth showing: bump the host's `total`. It is counted in "+ N more".
+- New machine: add `{ id, name, tag, note }` to `hosts`.
+- Change `updated` to the current month.
 
-## Verification
+Do not put IP addresses, hostnames, ports or admin URLs in that file. The site is public.
 
-`src/App.test.js` exercises the student introduction, all six explorer selections, all four project filters, restoration of the complete archive, keyboard-first skip navigation, unique IDs, contact destinations and experience context. Each major behavior was introduced with a failing test before its implementation, in sequential red/green cycles.
+## Publishing
 
-`src/setupTests.js` bridges RTL 13's old test-utils `act` entry point to React 18.3's real `act`, without suppressing console warnings. User-event state updates are wrapped explicitly.
+`master` deploys to nathanceci.com through Vercel. Work on a branch, check it locally, then merge.
 
-Manual review before publishing: keyboard focus and Enter/Space on lab buttons; all filters; narrow mobile widths; reduced motion; readable screenshots; email/phone destinations. The diagram is intentionally simplified, not monitoring, and must not contain private addresses, admin URLs, credentials or invented service metrics.
+The Create React App dependency tree is old and `npm audit` reports known vulnerabilities in it. They affect the dev tooling, so keep the dev server on the LAN. Moving off CRA is a separate job.
 
-## Preview and publication boundary
-
-Work stays on `feat/it-systems-portfolio`. The existing LAN development service reads the working tree. Builds produce a local `build/` directory; building is not a production release. Do not push, merge or deploy as part of a preview review. The production branch is `master` and is connected to Vercel automatic deployment.
-
-The inherited CRA dependency tree has known vulnerabilities. Keep preview access LAN-only and handle dependency remediation as a separate reviewed change. This rework does not claim to resolve the inherited audit findings.
-
-## Attribution
-
-Nathan's original projects include individual and team work. This portfolio rework used AI-assisted design, copy and code collaboration. Do not imply Nathan personally authored every assisted line or claim professional systems-administration experience from a personal lab.
+`src/Data/Data.js` and the unused components and stylesheets are left over from the previous version of the site.
