@@ -31,7 +31,7 @@ test('introduces Nathan as a student looking for a first IT job', () => {
 test('shows the real lab layout from the internet down to the virtual machines', () => {
   render(<LabExplorer />);
   const diagram = screen.getByRole('region', { name: /home lab diagram/i });
-  ['Fibre', 'Router', '10Gb uplink', 'Lab switches', 'LilRed', 'Always-on Pi', 'Proxmox workstation'].forEach(text =>
+  ['Fibre', 'Router', '10Gb uplink', 'Lab switches', 'LilRed', 'Always-on services', 'Proxmox workstation'].forEach(text =>
     expect(within(diagram).getByText(text)).toBeInTheDocument());
   ['WireGuard', 'Pi-hole', 'Jellyfin', 'AI server', 'Immich', 'Forge', 'Gaming'].forEach(name =>
     expect(within(diagram).getByRole('button', { name })).toBeInTheDocument());
