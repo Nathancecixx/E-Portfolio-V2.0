@@ -5,7 +5,7 @@
           `link` is the label on the connection to the NEXT stop.
   hosts   The physical machines. Each one gets a card.
           services  The things worth showing. Each becomes a button.
-          total     How many VMs/services the host really runs.
+          total     How many VMs/containers/services the host really runs.
                     The diagram shows "+ N more" for the rest.
           wide      true makes the card take the wide column on desktop.
 
@@ -44,9 +44,9 @@ export const lab = {
     {
       id: 'proxmox',
       name: 'Proxmox workstation',
-      tag: 'Type 1 hypervisor · 14 VMs',
+      tag: 'Type 1 hypervisor · 15 VMs and containers',
       wide: true,
-      total: 14,
+      total: 15,
       note: 'A workstation I built that runs Proxmox on bare metal. Every job gets its own virtual machine or LXC container, and I set up, update and troubleshoot all of them. Pick one to see what it does.',
       services: [
         { id: 'ai', name: 'AI server', runs: 'llama.cpp · GPU passthrough', note: 'The graphics cards are passed straight through to this VM, where llama.cpp runs AI models locally instead of in the cloud.' },

@@ -25,7 +25,7 @@ test('shows the real lab layout from the internet down to the virtual machines',
     expect(within(diagram).getByText(text)).toBeInTheDocument());
   ['WireGuard', 'Pi-hole', 'Jellyfin', 'AI server', 'Immich', 'Forge', 'Gaming'].forEach(name =>
     expect(within(diagram).getByRole('button', { name })).toBeInTheDocument());
-  expect(within(diagram).getByText('+ 9 more')).toBeInTheDocument();
+  expect(within(diagram).getByText('+ 10 more')).toBeInTheDocument();
   expect(diagram.textContent).not.toMatch(/pearl|school|192\.168\.|uptime/i);
 });
 
