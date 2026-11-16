@@ -136,7 +136,7 @@ h2 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1.1; letter-spacing: 
   h1 { font-size: clamp(2.7rem, 11.5vw, 3.6rem); }
   .intro-lead { font-size: 1.02rem; margin-top: 22px; }
   .actions { gap: 8px 24px; margin-top: 24px; }
-  .rack-photo { max-width: 340px; }
+  .rack-photo { max-width: 360px; }
   .lab-section, .projects-section, .about-section { padding: 52px 0; }
   .section-head { margin-bottom: 28px; }
   .lab { padding: 18px 16px; }

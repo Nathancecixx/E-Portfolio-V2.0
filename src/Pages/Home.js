@@ -13,8 +13,8 @@ export default function Home() {
         </div>
       </div>
       <figure className="rack-photo">
-        <img src={rack} alt="My home lab rack: Raspberry Pis above two network switches and patch panels" width="900" height="1388" />
-        <figcaption>The rack: Pis on top, switches below.</figcaption>
+        <img src={rack} alt="My main home lab rack" width="900" height="1394" />
+        <figcaption>My main home lab rack.</figcaption>
       </figure>
     </section>
   );

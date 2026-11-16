@@ -12,7 +12,7 @@ export default function AboutMe() {
         </div>
         <div className="experience">
           <div className="experience-entry"><p className="eyebrow">Finishing April 2027</p><h3>Conestoga College</h3><p>Bachelor of Computer Science</p></div>
-          <div className="experience-entry"><p className="eyebrow">May 2024 – present</p><h3>Canadian Tire</h3><p>Sales Associate</p></div>
+          <div className="experience-entry"><p className="eyebrow">May 2024 – present</p><h3>Canadian Tire</h3><p>Manager</p></div>
           <div className="experience-entry"><p className="eyebrow">Sep 2021 – Aug 2023</p><h3>Foodland</h3><p>Supervisor</p></div>
           <div className="experience-entry"><p className="eyebrow">Languages</p><p>C, C++, C#, Python, Java, JavaScript</p></div>
         </div>
