@@ -9,6 +9,16 @@ import { lab } from './Data/lab';
 
 const click = element => act(() => userEvent.click(element));
 
+// jsdom has no matchMedia, so tests say what the device prefers.
+const setDevice = dark => {
+  window.matchMedia = jest.fn(query => ({ matches: dark && query.includes('dark'), media: query, addEventListener: jest.fn(), removeEventListener: jest.fn() }));
+};
+afterEach(() => {
+  localStorage.clear();
+  delete window.matchMedia;
+  document.documentElement.removeAttribute('data-theme');
+});
+
 test('introduces Nathan as a student looking for a first IT job', () => {
   render(<Home />);
   expect(screen.getByRole('heading', { level: 1, name: /IT systems, networking & software/i })).toBeInTheDocument();
@@ -21,7 +31,7 @@ test('introduces Nathan as a student looking for a first IT job', () => {
 test('shows the real lab layout from the internet down to the virtual machines', () => {
   render(<LabExplorer />);
   const diagram = screen.getByRole('region', { name: /home lab diagram/i });
-  ['Fibre', 'Router', '10Gb uplink', 'Lab switches', 'LilRed', 'Always-on Pi', 'Proxmox workstation'].forEach(text =>
+  ['Fibre', 'Router', '10Gb uplink', 'Lab switches', 'LilRed', 'Always-on services', 'Proxmox workstation'].forEach(text =>
     expect(within(diagram).getByText(text)).toBeInTheDocument());
   ['WireGuard', 'Pi-hole', 'Jellyfin', 'AI server', 'Immich', 'Forge', 'Gaming'].forEach(name =>
     expect(within(diagram).getByRole('button', { name })).toBeInTheDocument());
@@ -81,8 +91,35 @@ test('whole page: navigation, contact links and plain wording', () => {
   expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/nathan-ceci/');
   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   expect(document.body.textContent).not.toMatch(/mindful of the person|practical curiosity|field note|a lot to learn from/i);
-  expect(document.body.textContent).not.toMatch(/help from LilRed|helped build|built this site/i);
+  expect(document.body.textContent).not.toMatch(/help from LilRed|helped build|built this site|keep it running/i);
   expect(screen.getByText(/personal assistant\. I message it/i)).toBeInTheDocument();
   const ids = Array.from(document.querySelectorAll('[id]'), el => el.id);
   expect(new Set(ids).size).toBe(ids.length);
+});
+
+test('theme follows the device until the visitor picks one', () => {
+  setDevice(true);
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  click(screen.getByRole('button', { name: 'Switch to light theme' }));
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+  expect(localStorage.getItem('theme')).toBe('light');
+  // Picking the device's own setting again goes back to following the device.
+  click(screen.getByRole('button', { name: 'Switch to dark theme' }));
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  expect(localStorage.getItem('theme')).toBeNull();
+});
+
+test('remembers the visitor\'s theme over the device setting', () => {
+  setDevice(false);
+  localStorage.setItem('theme', 'dark');
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+  expect(screen.getByRole('button', { name: 'Switch to light theme' })).toBeInTheDocument();
+});
+
+test('uses the light theme when the device has no preference', () => {
+  render(<App />);
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+  expect(screen.getByRole('button', { name: 'Switch to dark theme' })).toBeInTheDocument();
 });

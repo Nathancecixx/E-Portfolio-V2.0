@@ -20,7 +20,8 @@ npm run build                                      # production build
 | Intro and rack photo | `src/Pages/Home.js` |
 | About, school and work history | `src/Pages/AboutMe.js` |
 | Contact details | `src/Pages/Contact.js` |
-| Colours and fonts | `src/index.css` |
+| Colours and fonts (light and dark) | `src/index.css` |
+| Theme switch | `src/theme.js`, plus the script in `public/index.html` |
 | Layout | `src/App.css` |
 
 ### Updating the home lab

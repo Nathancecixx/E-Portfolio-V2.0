@@ -33,7 +33,7 @@ export const lab = {
     },
     {
       id: 'services-pi',
-      name: 'Always-on Pi',
+      name: 'Always-on services',
       tag: 'Raspberry Pi · 24/7 LAN services',
       note: 'A second Pi for anything that has to stay up all day. Keeping these off the workstation means I can restart it without the network losing DNS or VPN.',
       services: [

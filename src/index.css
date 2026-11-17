@@ -4,16 +4,40 @@
   --muted: #62645b;
   --rule: #d3d2c6;
   --accent: #9b3c2b;
-  --soft: #edeade;
+  --accent-hover: #793021;
+  --panel: #eceee5;
+  --line: #8d9982;
+  --lab-label: #4e5849;
+  --lab-faint: #52604c;
+  --media: #e6e5db;
+  --select-bg: #e5c3af;
+  --select-ink: #262a26;
   --display: Georgia, 'Times New Roman', serif;
   --body: 'Trebuchet MS', 'Segoe UI', sans-serif;
   --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   color-scheme: light;
 }
+/* Dark theme. data-theme is set in public/index.html before first paint, then kept by src/theme.js. */
+:root[data-theme='dark'] {
+  --paper: #171916;
+  --ink: #e9e6dc;
+  --muted: #a5a699;
+  --rule: #42463c;
+  --accent: #e2745d;
+  --accent-hover: #ec907c;
+  --panel: #1e211c;
+  --line: #717d68;
+  --lab-label: #adb7a5;
+  --lab-faint: #909b88;
+  --media: #22251f;
+  --select-bg: #7a3525;
+  --select-ink: #f6f3eb;
+  color-scheme: dark;
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-::selection { background: #e5c3af; color: #262a26; }
+::selection { background: var(--select-bg); color: var(--select-ink); }
 a { color: inherit; text-underline-offset: .22em; }
 button { font: inherit; cursor: pointer; }
 a, button { -webkit-tap-highlight-color: transparent; }

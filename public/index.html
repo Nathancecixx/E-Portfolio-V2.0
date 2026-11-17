@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f6f3eb" />
+    <script>
+      // Pick the theme before the page paints so it never flashes the wrong one.
+      // Uses the visitor's saved choice if there is one, otherwise the device setting. See src/theme.js.
+      (function () {
+        var theme = 'light';
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'dark' || saved === 'light') theme = saved;
+          else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <meta name="description" content="Nathan Ceci, a Computer Science student in Guelph looking for a first job in IT. My home lab, my projects and how to reach me." />
     <meta property="og:title" content="Nathan Ceci — IT systems, networking &amp; software" />
     <meta property="og:description" content="My home lab, my projects and how to reach me." />
