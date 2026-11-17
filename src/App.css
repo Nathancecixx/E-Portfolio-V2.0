@@ -30,7 +30,7 @@ h1 .serif-italic { color: var(--accent); }
 .rack-photo figcaption { font-family: var(--mono); font-size: .72rem; color: var(--muted); margin-top: 10px; }
 
 /* Section headings */
-.lab-section, .projects-section, .about-section { padding: 72px 0; border-top: 1px solid var(--rule); }
+.lab-section, .projects-section, .games-section, .about-section { padding: 72px 0; border-top: 1px solid var(--rule); }
 .section-head { margin-bottom: 36px; }
 h2 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1.1; letter-spacing: -.04em; }
 .section-head p { max-width: 560px; color: var(--muted); margin-top: 14px; }
@@ -81,6 +81,30 @@ h2 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1.1; letter-spacing: 
 .project-links a { font-size: .85rem; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
 .project-links a:hover { color: var(--accent); text-decoration: underline; }
 
+/* Playable games */
+.game { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.game + .game { margin-top: 56px; }
+.game-stage { position: relative; aspect-ratio: 16 / 9; background: var(--media); border: 1px solid var(--rule); overflow: hidden; }
+.game-stage:fullscreen { aspect-ratio: auto; border: 0; }
+.game-stage iframe { display: block; width: 100%; height: 100%; border: 0; }
+.game-start { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+.game-start img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; filter: brightness(.7); transition: filter .2s; }
+.game-start:hover img { filter: brightness(.9); }
+.game-start-label { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 14px 40px; background: var(--accent); color: var(--paper); font-size: 1.1rem; transition: background .15s; }
+.game-start:hover .game-start-label { background: var(--accent-hover); }
+.game-note, .game-bar p { color: var(--muted); font-size: .82rem; }
+.game-note { margin: 4px 0 6px; }
+.game-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 12px; }
+.game-bar button { min-height: 44px; padding: 8px 18px; border: 1px solid var(--rule); background: transparent; color: var(--ink); font-size: .88rem; }
+.game-bar button:hover { border-color: var(--ink); }
+.game-copy .eyebrow { font-size: .68rem; color: var(--accent); }
+.game-copy h3 { font: 400 1.9rem/1.2 var(--display); letter-spacing: -.03em; margin: 4px 0 10px; }
+.game-copy > p:not(.eyebrow) { color: var(--muted); font-size: .95rem; }
+.game-controls { display: grid; gap: 8px; margin: 22px 0 10px; }
+.game-controls li { display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: .9rem; }
+.game-keys { display: inline-flex; gap: 4px; min-width: 84px; }
+.game-keys kbd { font-family: var(--mono); font-size: .78rem; line-height: 1; padding: 7px 9px; border: 1px solid var(--line); border-bottom-width: 3px; color: var(--ink); }
+
 /* About */
 .about-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; }
 .about-story p { max-width: 60ch; color: var(--muted); margin-bottom: 18px; }
@@ -111,6 +135,7 @@ h2 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1.1; letter-spacing: 
   .intro { grid-template-columns: 1fr 300px; gap: 40px; padding: 56px 0 64px; }
   .lab { padding: 24px; }
   .project-archive { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .game { grid-template-columns: 1fr; gap: 24px; }
   .about-layout { gap: 48px; }
 }
 
@@ -138,7 +163,7 @@ h2 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1.1; letter-spacing: 
   .intro-lead { font-size: 1.02rem; margin-top: 22px; }
   .actions { gap: 8px 24px; margin-top: 24px; }
   .rack-photo { max-width: 360px; }
-  .lab-section, .projects-section, .about-section { padding: 52px 0; }
+  .lab-section, .projects-section, .games-section, .about-section { padding: 52px 0; }
   .section-head { margin-bottom: 28px; }
   .lab { padding: 18px 16px; }
   .lab-host { padding: 18px 16px; }

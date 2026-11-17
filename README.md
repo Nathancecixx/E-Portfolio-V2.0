@@ -17,6 +17,7 @@ npm run build                                      # production build
 |---|---|
 | Home lab diagram | `src/Data/lab.js` |
 | Projects | `src/Data/portfolio.js` |
+| Playable games | `src/Data/games.js`, with the exported game files in `public/games/` |
 | Intro and rack photo | `src/Pages/Home.js` |
 | About, school and work history | `src/Pages/AboutMe.js` |
 | Contact details | `src/Pages/Contact.js` |
