@@ -33,7 +33,7 @@ test('shows the real lab layout from the internet down to the virtual machines',
   const diagram = screen.getByRole('region', { name: /home lab diagram/i });
   ['Fibre', 'Router', '10Gb uplink', 'Lab switches', 'LilRed', 'Always-on services', 'Proxmox workstation'].forEach(text =>
     expect(within(diagram).getByText(text)).toBeInTheDocument());
-  ['WireGuard', 'Pi-hole', 'Jellyfin', 'AI server', 'Immich', 'Forge', 'Gaming'].forEach(name =>
+  ['WireGuard', 'Pi-hole', 'Nginx', 'Jellyfin', 'AI server', 'Immich', 'Forge', 'Gaming'].forEach(name =>
     expect(within(diagram).getByRole('button', { name })).toBeInTheDocument());
   expect(within(diagram).getByText('+ 10 more')).toBeInTheDocument();
   expect(diagram.textContent).not.toMatch(/pearl|school|192\.168\.|uptime/i);
@@ -49,6 +49,9 @@ test('explains a service when it is selected and returns to the host note when d
   expect(ai).toHaveAttribute('aria-pressed', 'false');
   expect(screen.queryByText(/llama\.cpp runs AI models locally/)).not.toBeInTheDocument();
   expect(screen.getByText(/away from home/i)).toBeInTheDocument();
+  click(screen.getByRole('button', { name: 'Nginx' }));
+  expect(screen.getByText(/by name instead of by port number/i)).toBeInTheDocument();
+  click(screen.getByRole('button', { name: 'WireGuard' }));
   click(screen.getByRole('button', { name: 'WireGuard' }));
   expect(screen.getAllByRole('button').filter(b => b.getAttribute('aria-pressed') === 'true')).toHaveLength(0);
 });

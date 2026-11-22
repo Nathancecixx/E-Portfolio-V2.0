@@ -39,6 +39,7 @@ export const lab = {
       services: [
         { id: 'wireguard', name: 'WireGuard', runs: 'VPN', note: 'My VPN. It is how I get into the lab securely when I am away from home.' },
         { id: 'pihole', name: 'Pi-hole', runs: 'DNS', note: 'DNS for the LAN, with ad blocking for every device on it.' },
+        { id: 'nginx', name: 'Nginx', runs: 'Reverse proxy', note: 'A reverse proxy in front of my self-hosted services, so I open them by name instead of by port number.' },
       ],
     },
     {
