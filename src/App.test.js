@@ -126,3 +126,20 @@ test('uses the light theme when the device has no preference', () => {
   expect(document.documentElement).toHaveAttribute('data-theme', 'light');
   expect(screen.getByRole('button', { name: 'Switch to dark theme' })).toBeInTheDocument();
 });
+
+test('games section loads Little Wizard only when the visitor asks to play', () => {
+  render(<App />);
+  const games = document.querySelector('#games');
+  expect(within(games).getByRole('heading', { level: 2, name: 'Games' })).toBeInTheDocument();
+  expect(within(screen.getByRole('navigation', { name: 'Main navigation' })).getByRole('link', { name: 'Games' })).toHaveAttribute('href', '#games');
+  // Nothing heavy is fetched until Play is pressed.
+  expect(document.querySelector('iframe')).not.toBeInTheDocument();
+  ['Move', 'Jump', 'Fireball', 'Interact'].forEach(action => expect(within(games).getByText(action)).toBeInTheDocument());
+  click(within(games).getByRole('button', { name: 'Play Little Wizard' }));
+  const frame = within(games).getByTitle('Little Wizard');
+  expect(frame.tagName).toBe('IFRAME');
+  expect(frame).toHaveAttribute('src', '/games/little-wizard/index.html');
+  click(within(games).getByRole('button', { name: 'Stop' }));
+  expect(document.querySelector('iframe')).not.toBeInTheDocument();
+  expect(within(games).getByRole('button', { name: 'Play Little Wizard' })).toBeInTheDocument();
+});

@@ -23,6 +23,7 @@ export default function Navbar() {
       <nav aria-label="Main navigation">
         <a href="#home-lab">Home lab</a>
         <a href="#projects">Projects</a>
+        <a href="#games">Games</a>
         <a href="#about-me">About</a>
         <a href="#contact">Contact</a>
       </nav>
